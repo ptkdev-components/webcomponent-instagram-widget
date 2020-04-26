@@ -38,10 +38,12 @@ Photos from @ptkdev account:
 <ptkdev-instagram-widget username="@ptkdev"></ptkdev-instagram-widget>
 ```
 
-2. Require javascript in yourpage (before `</body>`). You can replace `en` in jsdelivr cdn with `it` or `pl` and load different languages:
+2. Require javascript in yourpage (before `</body>`):
 ```html
 <script src="https://cdn.jsdelivr.net/npm/@ptkdev/webcomponent-instagram-widget/dist/latest/en/instagram-widget.min.js"></script>
 ```
+
+You can replace `en` in jsdelivr cdn with `it` or `pl` and load different languages or replace `latest` with specific version.
 
 See folder `examples`, run with `npm run example`. Below is available a description of `options` values and all logger methods.
 
