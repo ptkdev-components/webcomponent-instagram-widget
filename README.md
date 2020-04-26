@@ -47,7 +47,7 @@ You can replace `en` in jsdelivr cdn with `it` or `pl` and load different langua
 
 See folder `examples`, run with `npm run example`. Below is available a description of `options` values and all logger methods.
 
-## Options
+## 🧰 Options
 
 | Parameter | Description | Values | Default value |
 | --- | --- | --- | --- |
