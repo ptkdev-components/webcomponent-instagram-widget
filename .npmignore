@@ -6,6 +6,7 @@ examples/
 modules/
 scripts/
 webcomponent/
+translations/
 app.js
 jsconfig.json
 .github
@@ -19,6 +20,7 @@ docker/
 Dockerfile
 Dockerfile.*
 loginpin.txt
+gulpfile.js
 .gitmodules
 .jshintrc
 .gitattributes
