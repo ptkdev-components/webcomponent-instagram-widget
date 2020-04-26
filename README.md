@@ -60,11 +60,10 @@ See folder `examples`, run with `npm run example`. Below is available a descript
 4. Run `npm run dev`
 
 ## ♻️ Change the HTML Tag name
-If you don't like the html tag of this component you can change it as you like by adding a new line that rewrites its name:
+If you don't like the html tag of this component you can change it as you like: save [latest](https://cdn.jsdelivr.net/npm/@ptkdev/webcomponent-instagram-widget/dist/latest/en/instagram-widget.min.js) library from cdn. Edit last line from: `window.customElements.define("ptkdev-instagram-widget",e)` to `window.customElements.define("mycomponentname",e)` and use it like as:
 ```html
 <mycomponentname username="@ptkdev"></mycomponentname>
-<script src="https://cdn.jsdelivr.net/npm/@ptkdev/webcomponent-instagram-widget/dist/latest/en/instagram-widget.min.js"></script>
-<script>window.customElements.define("mycomponentname", InstagramWidget);</script>
+<script src="instagram-widget.min.js"></script>
 ```
 
 ## 📚 Documentation
