@@ -59,7 +59,7 @@ See folder `examples`, run with `npm run example`. Below is available a descript
 3. Run `npm install`
 4. Run `npm run dev`
 
-## Change the WebComponent HTML Tag name
+## ♻️ Change the WebComponent HTML Tag name
 If you don't like the html tag of this component you can change it as you like by adding a new line that rewrites its customElements name:
 ```html
 <mycomponentname username="@ptkdev"></mycomponentname>
