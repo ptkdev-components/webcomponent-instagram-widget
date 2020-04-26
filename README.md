@@ -53,6 +53,20 @@ See folder `examples`, run with `npm run example`. Below is available a descript
 | --- | --- | --- | --- |
 | username | Set your instagram username | Your instagram username with or without @ | @ptkdev |
 
+## 🔨 Developer Mode
+1. Download [nightly](https://github.com/ptkdev-components/webcomponent-instagram-widget/archive/nightly.zip), [beta](https://github.com/ptkdev-components/webcomponent-instagram-widget/archive/beta.zip) or [stable](https://github.com/ptkdev-components/webcomponent-instagram-widget/archive/master.zip).
+2. Remove `.tpl` suffix from `config.js.tpl` file in `configs` folder and fill it properly.
+3. Run `npm install`
+4. Run `npm run dev`
+
+## Change the WebComponent HTML Tag name
+If you don't like the html tag of this component you can change it as you like by adding a new line that rewrites its customElements name:
+```html
+<mycomponentname username="@ptkdev"></mycomponentname>
+<script src="https://cdn.jsdelivr.net/npm/@ptkdev/webcomponent-instagram-widget/dist/latest/en/instagram-widget.min.js"></script>
+<script>window.customElements.define("mycomponentname", InstagramWidget);</script>
+```
+
 ## 📚 Documentation
 Run `npm run docs`
 
