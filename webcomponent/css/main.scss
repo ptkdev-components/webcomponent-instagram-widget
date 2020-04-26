@@ -1,0 +1,14 @@
+#ptkdev-instagram-widget {
+	.instagram-widget-container {
+		text-align: center;
+		justify-content: center;
+		font-weight: 500;
+	}
+
+	.instagram-widget-photos img {
+		border-radius: 5%;
+		background-color: ghostwhite;
+		object-fit: cover;
+		object-position: 50% 50%;
+	}
+}

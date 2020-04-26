@@ -1,0 +1,105 @@
+{
+	"name": "@ptkdev/webcomponent-instagram-widget",
+	"description": "Simple Instagram Widget: Photos Box of your Instagram Profile for your blog or website with this WebComponent.",
+	"version": "1.0.0",
+	"main": "dist/instagram-widget-latest.js",
+	"author": "Patryk Rzucidło [@ptkdev] <support@ptkdev.io> (https://ptk.dev)",
+	"license": "MIT",
+	"license-docs": "CC BY 4.0",
+	"license-translations": "CC BY 4.0",
+	"license-images": "CC BY-NC 4.0",
+	"homepage": "https://github.com/ptkdev-components/webcomponent-instagram-widget",
+	"docs": "https://docs.github.com/ptkdev-components/webcomponent-instagram-widget",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ptkdev-components/webcomponent-instagram-widget.git"
+	},
+	"bugs": {
+		"url": "https://github.com/ptkdev-components/webcomponent-instagram-widget/issues"
+	},
+	"scripts": {
+		"dev": "gulp start --build=\"dev\"",
+		"release": "node scripts/release.js",
+		"dist": "gulp dist --build=\"dev\"",
+		"build": "gulp release --build=\"prod\"",
+		"example": "serve examples",
+		"clean": "rm -rf node_modules package-lock.json && npm install",
+		"update": "rm -f package-lock.json && npm update",
+		"lint": "eslint ./ --cache --ignore-pattern .gitignore",
+		"lint-fix": "eslint ./ --cache --ignore-pattern .gitignore --fix",
+		"git-set-upstream": "git remote add upstream git@github.com:ptkdev-components/webcomponent-instagram-widget.git && git fetch upstream",
+		"git-pull-upstream": "git pull upstream master && git pull upstream beta && git pull upstream nightly",
+		"git-pull": "git pull --recursive",
+		"git-ignore-reset": "git rm -r --cached . && git add . && git commit -m \"[Fix] Removing all files in .gitignore\"",
+		"npm-publish-master": "git checkout master && npm publish",
+		"npm-publish-beta": "git checkout beta && npm publish --tag beta",
+		"npm-publish-nightly": "git checkout nightly && npm publish --tag nightly",
+		"docs": "git submodule update --recursive && markserv ./README.md",
+		"test": "jest",
+		"contributors-generate": "all-contributors generate"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "npm run lint && npm run contributors-generate"
+		}
+	},
+	"keywords": [
+		"ptkdev",
+		"webcomponents",
+		"webcomponent",
+		"HTMLElement",
+		"CustomElements",
+		"instagram",
+		"instagram photos",
+		"instagram box",
+		"instagram last photos",
+		"instagram widget",
+		"instagram photo widget",
+		"ig",
+		"ig photos",
+		"ig box",
+		"ig last photos",
+		"ig widget"
+
+	],
+	"engines": {
+		"node": ">=12.0.0"
+	},
+	"devDependencies": {
+		"@ptkdev/logger": "latest",
+		"express": "latest",
+		"express-session": "latest",
+		"node-fetch": "latest",
+		"browser-sync": "latest",
+		"eslint": "latest",
+		"eslint-config-standard": "latest",
+		"eslint-plugin-import": "latest",
+		"eslint-plugin-jsdoc": "latest",
+		"eslint-plugin-jest": "latest",
+		"eslint-plugin-node": "latest",
+		"eslint-plugin-promise": "latest",
+		"eslint-plugin-snakecasejs": "latest",
+		"eslint-plugin-standard": "latest",
+		"all-contributors-cli": "latest",
+		"gulp": "latest",
+		"gulp-concat": "latest",
+		"gulp-clean-css": "latest",
+		"gulp-terser": "latest",
+		"gulp-rename": "latest",
+		"gulp-nodemon": "latest",
+		"gulp-nunjucks": "latest",
+		"gulp-nunjucks-render": "latest",
+		"gulp-data": "latest",
+		"gulp-run": "latest",
+		"gulp-sass": "latest",
+		"pm2": "latest",
+		"json": "latest",
+		"chai": "latest",
+		"jest": "latest",
+		"husky": "latest",
+		"yargs": "latest",
+		"serve": "latest",
+		"markserv": "latest"
+	},
+	"contributors": []
+}
