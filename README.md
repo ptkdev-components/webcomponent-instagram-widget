@@ -52,6 +52,7 @@ See folder `examples`, run with `npm run example`. Below is available a descript
 | Parameter | Description | Values | Default value |
 | --- | --- | --- | --- |
 | username | Set your instagram username | Your instagram username with or without @ | @ptkdev |
+| items-limit | Set the max number of pictures | The max number of shown pictures  | 8 |
 
 ## 📚 Documentation
 Run `npm run docs`

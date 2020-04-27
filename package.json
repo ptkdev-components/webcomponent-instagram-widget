@@ -101,5 +101,5 @@
 		"serve": "latest",
 		"markserv": "latest"
 	},
-	"contributors": []
+	"contributors": ["Emanuele Fricano <emanuelefricano93@gmail.com>"]
 }
