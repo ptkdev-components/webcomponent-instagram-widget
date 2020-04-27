@@ -72,16 +72,6 @@ gulp.task("build-html", function() {
 	return gulp.src(files).pipe(gulp.dest(`./dist/${version}/`));
 });
 
-gulp.task("build-version", function() {
-	let files = [
-		"./dist/dev/js/instagram-widget.js"
-	];
-
-	return gulp.src(files)
-		.pipe(gulp_rename("instagram-widget.min.js"))
-		.pipe(gulp.dest(`./dist/${version}/${language}/`));
-});
-
 gulp.task("build-version-latest", function() {
 	let files = [
 		"./dist/dev/js/instagram-widget.js"
@@ -89,7 +79,7 @@ gulp.task("build-version-latest", function() {
 
 	return gulp.src(files)
 		.pipe(gulp_rename("instagram-widget.min.js"))
-		.pipe(gulp.dest(`./dist/latest/${language}/`));
+		.pipe(gulp.dest(`./dist/lib/${language}/`));
 });
 
 /**
@@ -131,4 +121,4 @@ gulp.task("browser-sync", function() {
 */
 gulp.task("start", gulp.series("build-css", "build-html", "build-js", "browser-sync"));
 gulp.task("dist", gulp.series("build-css", "build-html", "build-js"));
-gulp.task("release", gulp.series("build-version", "build-version-latest"));
+gulp.task("release", gulp.series("build-version-latest"));
