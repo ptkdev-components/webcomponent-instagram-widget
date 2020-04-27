@@ -20,6 +20,14 @@
         "doc",
         "bug"
       ]
+    },
+	{
+      "login": "emanuelefricano93",
+      "name": "Emanuele Fricano",
+      "contributions": [
+        "code",
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 6,

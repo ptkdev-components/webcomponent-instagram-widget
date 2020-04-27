@@ -52,6 +52,7 @@ See folder `examples`, run with `npm run example`. Below is available a descript
 | Parameter | Description | Values | Default value |
 | --- | --- | --- | --- |
 | username | Set your instagram username | Your instagram username with or without @ | @ptkdev |
+| items-limit | Set the max number of pictures | The max number of shown pictures  | 8 |
 
 ## 🔨 Developer Mode
 1. Download [nightly](https://github.com/ptkdev-components/webcomponent-instagram-widget/archive/nightly.zip), [beta](https://github.com/ptkdev-components/webcomponent-instagram-widget/archive/beta.zip) or [stable](https://github.com/ptkdev-components/webcomponent-instagram-widget/archive/master.zip).
