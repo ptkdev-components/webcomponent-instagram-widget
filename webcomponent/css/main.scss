@@ -10,5 +10,9 @@
 		background-color: ghostwhite;
 		object-fit: cover;
 		object-position: 50% 50%;
+		max-width: 300px;
+		max-height: 300px;
+		min-width: 80px;
+		min-height: 80px;
 	}
 }

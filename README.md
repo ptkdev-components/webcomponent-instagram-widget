@@ -1,6 +1,6 @@
 # 🌉 WebComponent: InstagramWidget
 
-[![](https://img.shields.io/badge/version-v1.0.1-lightgrey.svg)](https://github.com/ptkdev-components/webcomponent-instagram-widget/releases) [![](https://img.shields.io/npm/v/@ptkdev/webcomponent-instagram-widget.svg)](https://www.npmjs.com/package/@ptkdev/webcomponent-instagram-widget) [![](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://github.com/ptkdev-components/webcomponent-instagram-widget/blob/master/LICENSE.md) [![](https://img.shields.io/badge/ES-9-F7DF1E.svg)](https://wikipedia.org/wiki/ECMAScript) [![](https://snyk.io/test/github/ptkdev-components/webcomponent-instagram-widget/badge.svg)](https://snyk.io/test/github/ptkdev-components/webcomponent-instagram-widget) [![](https://discordapp.com/api/guilds/383373985666301975/embed.png)](http://discord.ptkdev.io)
+[![](https://img.shields.io/badge/version-v1.1.0-lightgrey.svg)](https://github.com/ptkdev-components/webcomponent-instagram-widget/releases) [![](https://img.shields.io/npm/v/@ptkdev/webcomponent-instagram-widget.svg)](https://www.npmjs.com/package/@ptkdev/webcomponent-instagram-widget) [![](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://github.com/ptkdev-components/webcomponent-instagram-widget/blob/master/LICENSE.md) [![](https://img.shields.io/badge/ES-9-F7DF1E.svg)](https://wikipedia.org/wiki/ECMAScript) [![](https://snyk.io/test/github/ptkdev-components/webcomponent-instagram-widget/badge.svg)](https://snyk.io/test/github/ptkdev-components/webcomponent-instagram-widget) [![](https://discordapp.com/api/guilds/383373985666301975/embed.png)](http://discord.ptkdev.io)
 
 > Simple Instagram Widget: Photos Box of your Instagram Profile for your blog or website with this WebComponent.
 
@@ -49,10 +49,13 @@ See folder `examples`, run with `npm run example`. Below is available a descript
 
 ## 🧰 Options
 
-| Parameter | Description | Values | Default value |
-| --- | --- | --- | --- |
-| username | Set your instagram username | Your instagram username with or without @ | @ptkdev |
-| items-limit | Set the max number of pictures | The max number of shown pictures  | 8 |
+| Parameter | Description | Values | Default value | Available from |
+| --- | --- | --- | --- | --- |
+| username | Set your instagram username | Your instagram username with or without @ | `@ptkdev` | v1.0.0 |
+| items-limit | Set the max number of pictures | The max number of shown pictures  | `9` | v1.1.0 |
+| grid | Set grid aspect ratio | `1x1`, `2x2`, `3x3`, etc... or `responsive` | `responsive` | v1.1.0 |
+| image-width | Set width of images (NOTE: grid different than `responsive` overwrite this value) | length units: `100%`, `100px`, `100` | `100%` | v1.1.0 |
+| image-height | Set height of images | length units: `100%`, `100px`, `100` | `100%` | v1.1.0 |
 
 ## 🔨 Developer Mode
 1. Download [nightly](https://github.com/ptkdev-components/webcomponent-instagram-widget/archive/nightly.zip), [beta](https://github.com/ptkdev-components/webcomponent-instagram-widget/archive/beta.zip) or [stable](https://github.com/ptkdev-components/webcomponent-instagram-widget/archive/master.zip).
@@ -91,6 +94,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tr>
     <td align="center"><a href="https://ptk.dev"><img src="https://avatars1.githubusercontent.com/u/442844?v=4" width="100px;" alt=""/><br /><sub><b>Patryk Rzucidło</b></sub></a><br /><a href="https://github.com/ptkdev/ptkdev-components/webcomponent-instagram-widget/commits?author=ptkdev" title="Code">💻</a> <a href="#translation-ptkdev" title="Translation">🌍</a> <a href="https://github.com/ptkdev/ptkdev-components/webcomponent-instagram-widget/commits?author=ptkdev" title="Documentation">📖</a> <a href="https://github.com/ptkdev/ptkdev-components/webcomponent-instagram-widget/issues?q=author%3Aptkdev" title="Bug reports">🐛</a></td>
+    <td align="center"><img src="https://avatars1.githubusercontent.com/u/26500344?v=4" width="100px;" alt=""/><br /><sub><b>Emanuele Fricano</b></sub><br /><a href="https://github.com/ptkdev/ptkdev-components/webcomponent-instagram-widget/commits?author=emanuelefricano93" title="Code">💻</a> <a href="https://github.com/ptkdev/ptkdev-components/webcomponent-instagram-widget/issues?q=author%3Aemanuelefricano93" title="Bug reports">🐛</a></td>
   </tr>
 </table>
 

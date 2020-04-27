@@ -1,7 +1,7 @@
 {
 	"name": "@ptkdev/webcomponent-instagram-widget",
 	"description": "Simple Instagram Widget: Photos Box of your Instagram Profile for your blog or website with this WebComponent.",
-	"version": "1.0.1",
+	"version": "1.1.0",
 	"main": "dist/instagram-widget-latest.js",
 	"author": "Patryk Rzucidło [@ptkdev] <support@ptkdev.io> (https://ptk.dev)",
 	"license": "MIT",
