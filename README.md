@@ -31,7 +31,7 @@
 * [✔️] Translations: 🇬🇧 🇮🇹 🇵🇱 (Help me ❤️)
 
 ## 👔 Screenshot
-See [Demo here](https://webcomponents-60bc6.firebaseapp.com/). Photos from @ptkdev account:
+See [Demo here](https://codepen.io/ptkdev/full/WNQOYqy). Photos from @ptkdev account:
 
 [![WebComponent: InstagramWidget ](https://raw.githubusercontent.com/ptkdev-components/webcomponent-instagram-widget/nightly/.github/assets/screenshot/webcomponent-instagram-widget-screen1.png)](https://raw.githubusercontent.com/ptkdev-components/webcomponent-instagram-widget/nightly/.github/assets/screenshot/webcomponent-instagram-widget-screen1.png)
 
