@@ -1,0 +1,54 @@
+<div class="container-ptkdev-widget">
+  <div class="form-input-container col-sm-2">
+    <form class="form-inputs" [formGroup]="fgInputs" (ngSubmit)="onChangeInputs()" novalidate>
+      <h2>Widget Configuration</h2>
+
+      <div class="col-12 mt-5">
+        <label for="accountName">Instagram account (Public)</label>
+        <input id="accountName" type="text" class="form-control" formControlName="accountName" placeholder="manufrica">
+      </div>
+
+      <div class="col-12 mt-2">
+        <label for="itemsLimit">Items</label>
+        <input id="itemsLimit" type="number" class="form-control" formControlName="itemsLimit" placeholder="from 1 to 12">
+      </div>
+
+      <div class="col-12 mt-2">
+        <label for="grid">Grid</label>
+        <input id="grid" type="text" class="form-control" formControlName="grid" placeholder="1x1 or 2x2 or 3x3">
+      </div>
+
+    <!-- TODO to be checked -->
+     <div class="col-12 mt-2">
+        <label for="imageWidth">Image Width</label>
+        <input id="imageWidth" type="text" class="form-control" formControlName="imageWidth" placeholder="100%, 100px, 100">
+      </div>
+
+      <div class="col-12 mt-2">
+        <label for="imageHeight">Image Height</label>
+        <input id="imageHeight" type="text" class="form-control" formControlName="imageHeight" placeholder="100%, 100px, 100, ...">
+      </div>
+
+      <div class="col-12 mt-2">
+        <label for="borderSpacing">Border Spacing</label>
+        <input id="borderSpacing" type="text" class="form-control" formControlName="borderSpacing" placeholder="2%, 2px, 2, ...">
+      </div>
+
+      <div class="col-12 mt-2">
+        <label for="borderCorners">Border Corners</label>
+        <input id="borderCorners" type="text" class="form-control" formControlName="borderCorners" placeholder="from 0 to 100">
+      </div>
+
+      <!-- Save cancel button -->
+      <div class="col-12 mt-5 apply-container">
+        <button type="submit" class="btn btn-primary" [disabled]="!fgInputs.valid">
+          Apply
+        </button>
+      </div>
+    </form>
+
+  </div>
+  <div class="col-sm-10">
+    <instagram-widget id="widget" username="@manufrica" grid="3x3"></instagram-widget>
+  </div>
+</div>

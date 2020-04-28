@@ -96,6 +96,23 @@ You can replace `en` in jsdelivr cdn with `it` or `pl` and load different langua
 
 Go to `examples/reactjs` and run `npm run start` in folder for more info. Below is available a description of `options` values and all logger methods.
 
+## ⚛️ Installation (Angular)
+1. Add html code to your `app.component.html` (and replace `@ptkdev` with your instagram username):
+```html
+<instagram-widget username="@ptkdev" />
+```
+
+2. Inlude javascript in your `index.html` (before `</body>`):
+```javascript
+<script src="https://cdn.jsdelivr.net/npm/@ptkdev/webcomponent-instagram-widget@latest/dist/lib/en/instagram-widget.min.js"></script>
+```
+
+You can replace `en` in jsdelivr cdn with `it` or `pl` and load different languages or replace `@latest` with specific version, example `@2.0.1`.
+
+Demo: https://webcomponents-60bc6.firebaseapp.com/instagram-widget
+
+Go to `examples/angular` and run `yarn install` then `yarn start` in folder for more info. Below is available a description of `options` values and all logger methods.
+
 ## 🧰 Options / Attributes
 
 | Parameter | Description | Values | Default value | Available from |
