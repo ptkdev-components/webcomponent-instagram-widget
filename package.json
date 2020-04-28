@@ -1,7 +1,7 @@
 {
 	"name": "@ptkdev/webcomponent-instagram-widget",
 	"description": "Simple Instagram Widget: Photos Box of your Instagram Profile for your blog or website with this WebComponent.",
-	"version": "2.0.0",
+	"version": "2.1.0",
 	"main": "dist/module/en/instagram-widget.min.js",
 	"author": "Patryk Rzucidło [@ptkdev] <support@ptkdev.io> (https://ptk.dev)",
 	"license": "MIT",
@@ -19,7 +19,7 @@
 	},
 	"scripts": {
 		"dev": "gulp start --build=\"dev\"",
-		"release": "node scripts/release.js",
+		"release": "npm run dist && node scripts/release.js",
 		"dist": "gulp dist --build=\"dev\"",
 		"build": "gulp release --build=\"prod\"",
 		"example": "serve examples",
@@ -60,7 +60,6 @@
 		"ig box",
 		"ig last photos",
 		"ig widget"
-
 	],
 	"engines": {
 		"node": ">=12.0.0"
@@ -101,5 +100,7 @@
 		"serve": "latest",
 		"markserv": "latest"
 	},
-	"contributors": ["Emanuele Fricano <emanuelefricano93@gmail.com>"]
+	"contributors": [
+		"Emanuele Fricano <emanuelefricano93@gmail.com>"
+	]
 }

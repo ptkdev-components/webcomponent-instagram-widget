@@ -17,8 +17,55 @@ class InstagramWidget extends HTMLElement {
 
 		this.attachShadow({mode: "open"});
 		this.shadowRoot.appendChild(template.content.cloneNode(true));
+		this.json = null;
+		this.options_default = {
+			"username": "@ptkdev",
+			"items-limit": "9",
+			"image-width": "100%",
+			"image-height": "100%",
+			"grid": "responsive",
+			"cache": "enabled",
+			"border-spacing": "2px",
+			"border-corners": "5"
+		};
+
+		this.options = this.options_default;
 	}
 
+	build_html() {
+		let data = this.json.graphql.user.edge_owner_to_timeline_media.edges;
+
+		let photos = [];
+
+		for (let i=0; i<data.length; i++) {
+			photos.push({
+				url: `https://www.instagram.com/p/${data[i].node.shortcode}/`,
+				thumbnail: data[i].node.thumbnail_src,
+				display_url: data[i].node.display_url !== undefined ? data[i].node.display_url : "",
+				caption: data[i].node.edge_media_to_caption.edges[0] &&
+				data[i].node.edge_media_to_caption.edges[0].node.text !== undefined ? data[i].node.edge_media_to_caption.edges[0].node.text : ""
+			});
+		}
+
+		let html = "";
+		for (let i = 0; i < photos.length && i < this.options["items-limit"]; i++) {
+			html += `<li><a href="${photos[i].url}" rel="nofollow external noopener noreferrer" target="_blank" title="${photos[i].caption.substring(0, 100).replace(/"/g, "")}"><img width="${this.options["image-width"]}" height="${this.options["image-height"]}" src="${photos[i].display_url}" alt="${photos[i].caption.substring(0, 100).replace(/"/g, "")}" loading="lazy" /></a></li>`;
+		}
+		document.querySelector("instagram-widget").shadowRoot.querySelector(".instagram-widget-photos").innerHTML = html;
+
+		if (this.options["grid"] !== "" && this.options["grid"] !== null && this.options["grid"] !== "responsive") {
+			let grid = this.options["grid"].split("x");
+			let width = 100 / parseInt(grid[0]);
+			let images = document.querySelector("instagram-widget").shadowRoot.querySelectorAll(".instagram-widget-photos img");
+			for (let i=0; i < images.length; i++) {
+				images[i].setAttribute("width", `${(width - 1)}%`);
+				images[i].style.maxWidth = "none";
+				images[i].style.maxHeight = "none";
+				images[i].style.borderRadius = `${this.options["border-corners"]}%`;
+				images[i].style.margin = this.options["border-spacing"];
+			}
+		}
+	}
 	/**
 	 * Get Photos from fetch request
 	 * =====================
@@ -26,101 +73,41 @@ class InstagramWidget extends HTMLElement {
 	 */
 	api_fetch() {
 		let self = this;
-		fetch(`https://www.instagram.com/${this.getAttribute("username").replace("@", "")}/`).then(function(response) {
+
+		let url = "https://api.ptkdev.io/v1/webcomponent-instagram.json"; // debug mode, instagram api limits
+		// let url = `https://www.instagram.com/${this.options["username"].replace("@", "")}/?__a=1`
+		fetch(url, {"cache": this.options["cache"] === null || this.options["cache"] === "enabled" ? "force-cache" : "default"}).then(function(response) {
 			if (response.status === 200) {
-				return response.text();
+				return response.json();
 			}
 		}).then(function(response) {
-			const instagram_regex = new RegExp(/<script type="text\/javascript">window\._sharedData = (.*);<\/script>/);
-			let json = JSON.parse(response.match(instagram_regex)[1]);
-			let data = json.entry_data.ProfilePage[0].graphql.user.edge_owner_to_timeline_media.edges.splice(0, 9);
-
-			const photos = data.map(({node}) => {
-				return {
-					url: `https://www.instagram.com/p/${node.shortcode}/`,
-					thumbnail: node.thumbnail_src,
-					display_url: node.display_url !== undefined ? node.display_url : "",
-					caption: node.edge_media_to_caption.edges[0] &&
-						node.edge_media_to_caption.edges[0].node.text !== undefined ? node.edge_media_to_caption.edges[0].node.text : ""
-				};
-			});
-
-			let html = "";
-			for (let i = 0; i < photos.length && i < self.getAttribute("items-limit"); i++) {
-				html += `<a href="${photos[i].url}" rel="nofollow external noopener noreferrer" target="_blank" title="${photos[i].caption.substring(0, 100).replace(/"/g, "")}"><img width="${self.getAttribute("image-width")}" height="${self.getAttribute("image-height")}" src="${photos[i].display_url}" alt="${photos[i].caption.substring(0, 100).replace(/"/g, "")}" loading="lazy" /></a> `;
-			}
-			document.querySelector("instagram-widget").shadowRoot.querySelector(".instagram-widget-photos").innerHTML = html;
-
-			if (self.getAttribute("grid") !== "" && self.getAttribute("grid") !== "responsive") {
-				let grid = self.getAttribute("grid").split("x");
-				let width = 100 / parseInt(grid[0]);
-				let images = document.querySelector("instagram-widget").shadowRoot.querySelectorAll(".instagram-widget-photos img");
-				for (let i=0; i < images.length; i++) {
-					images[i].setAttribute("width", `${(width - 1)}%`);
-					images[i].style.maxWidth = "none";
-					images[i].style.maxHeight = "none";
-				}
-			}
+			self.json = response;
+			self.build_html();
 		});
 	}
 
-	/**
-	 * Mount web component
-	 * =====================
-	 *
-	 */
-	connectedCallback() {
-		if (!this.hasAttribute("username")) {
-			this.setAttribute("username", "@ptkdev");
-		}
-		if (!this.hasAttribute("items-limit")) {
-			this.setAttribute("items-limit", 9);
-		}
-		if (!this.hasAttribute("image-width")) {
-			this.setAttribute("image-width", "100%");
-		}
-		if (!this.hasAttribute("image-height")) {
-			this.setAttribute("image-height", "100%");
-		}
-		if (!this.hasAttribute("grid")) {
-			this.setAttribute("grid", "responsive");
-		}
-
-		this.api_fetch();
-	}
-
 	static get observedAttributes() {
-		return ["username", "items-limit", "grid", "image-width", "image-height"];
+		return ["username", "items-limit", "grid", "image-width", "image-height", "border-spacing", "border-corners", "cache"];
 	}
 
 	attributeChangedCallback(name_attribute, old_vale, new_value) {
-		if (this.getAttribute(name_attribute) !== new_value) {
-			this.api_fetch();
+		if (old_vale !== new_value) {
+			if (new_value === null || new_value === "") {
+				this.options[name_attribute] = this.options_default[name_attribute];
+			} else {
+				this.options[name_attribute] = new_value;
+			}
+
+			switch (name_attribute) {
+				case "username":
+				  this.api_fetch();
+				  break;
+				default:
+				  if (this.json !== null) {
+						this.build_html();
+				  }
+			  }
 		}
-	}
-
-	get username() {
-		return this.getAttribute("username");
-	}
-
-	set username(new_value) {
-		this.setAttribute("username", new_value);
-	}
-
-	get items_limit() {
-		return this.getAttribute("items-limit");
-	}
-
-	set items_limit(new_value) {
-		this.setAttribute("items-limit", new_value);
-	}
-
-	get image_width() {
-		return this.getAttribute("image-width");
-	}
-
-	set image_height(new_value) {
-		this.setAttribute("image-height", new_value);
 	}
 }
 

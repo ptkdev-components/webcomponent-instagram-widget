@@ -1,8 +1,10 @@
 # 🌉 WebComponent: InstagramWidget
 
-[![](https://img.shields.io/badge/version-v2.0.0-lightgrey.svg)](https://github.com/ptkdev-components/webcomponent-instagram-widget/releases) [![](https://img.shields.io/npm/v/@ptkdev/webcomponent-instagram-widget.svg)](https://www.npmjs.com/package/@ptkdev/webcomponent-instagram-widget) [![](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://github.com/ptkdev-components/webcomponent-instagram-widget/blob/master/LICENSE.md) [![](https://img.shields.io/badge/ES-9-F7DF1E.svg)](https://wikipedia.org/wiki/ECMAScript) [![](https://snyk.io/test/github/ptkdev-components/webcomponent-instagram-widget/badge.svg)](https://snyk.io/test/github/ptkdev-components/webcomponent-instagram-widget) [![](https://discordapp.com/api/guilds/383373985666301975/embed.png)](http://discord.ptkdev.io)
+[![](https://img.shields.io/badge/version-v2.1.0-lightgrey.svg)](https://github.com/ptkdev-components/webcomponent-instagram-widget/releases) [![](https://img.shields.io/npm/v/@ptkdev/webcomponent-instagram-widget.svg)](https://www.npmjs.com/package/@ptkdev/webcomponent-instagram-widget) [![](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://github.com/ptkdev-components/webcomponent-instagram-widget/blob/master/LICENSE.md) [![](https://img.shields.io/badge/ES-9-F7DF1E.svg)](https://wikipedia.org/wiki/ECMAScript) [![](https://snyk.io/test/github/ptkdev-components/webcomponent-instagram-widget/badge.svg)](https://snyk.io/test/github/ptkdev-components/webcomponent-instagram-widget) [![](https://discordapp.com/api/guilds/383373985666301975/embed.png)](http://discord.ptkdev.io)
 
 > Simple Instagram Widget: Photos Box of your Instagram Profile for your blog or website with this WebComponent.
+
+> ⛔ **DISCLAIMER**: This is an **unofficial** instagram library and offers no warranty! All trademarks and logos belong to their respective owners.
 
 ## 🎁 Support: Donate
 > This project is **free**, **open source** and I try to provide excellent **free support**. Why donate? I work on this project several hours in my spare time and try to keep it up to date and working. **THANK YOU!**
@@ -44,7 +46,7 @@ See [Demo here](https://webcomponents-60bc6.firebaseapp.com/). Photos from @ptkd
 <script src="https://cdn.jsdelivr.net/npm/@ptkdev/webcomponent-instagram-widget@latest/dist/lib/en/instagram-widget.min.js"></script>
 ```
 
-You can replace `en` in jsdelivr cdn with `it` or `pl` and load different languages or replace `@latest` with specific version, example `@1.1.0`.
+You can replace `en` in jsdelivr cdn with `it` or `pl` and load different languages or replace `@latest` with specific version, example `@2.0.1`.
 
 See folder `examples`, run with `npm run example`. Below is available a description of `options` values and all logger methods.
 
@@ -60,6 +62,10 @@ See folder `examples`, run with `npm run example`. Below is available a descript
 require("@ptkdev/webcomponent-instagram-widget");
 ```
 
+You can replace `en` in jsdelivr cdn with `it` or `pl` and load different languages or replace `@latest` with specific version, example `@2.0.1`.
+
+See folder `examples`, run with `npm run example`. Below is available a description of `options` values and all logger methods.
+
 ## 📖 Installation (Wordpress)
 1. Add html code to your widget / post / html box in your theme (and replace `@ptkdev` with your instagram username):
 ```html
@@ -70,6 +76,10 @@ require("@ptkdev/webcomponent-instagram-widget");
 ```javascript
 <script src="https://cdn.jsdelivr.net/npm/@ptkdev/webcomponent-instagram-widget@latest/dist/lib/en/instagram-widget.min.js"></script>
 ```
+
+You can replace `en` in jsdelivr cdn with `it` or `pl` and load different languages or replace `@latest` with specific version, example `@2.0.1`.
+
+See folder `examples`, run with `npm run example`. Below is available a description of `options` values and all logger methods.
 
 ## ⚛️ Installation (React)
 1. Add html code to your `App.js` template (and replace `@ptkdev` with your instagram username):
@@ -82,9 +92,11 @@ require("@ptkdev/webcomponent-instagram-widget");
 <script src="https://cdn.jsdelivr.net/npm/@ptkdev/webcomponent-instagram-widget@latest/dist/lib/en/instagram-widget.min.js"></script>
 ```
 
-Go to `examples/reactjs` and run `npm run start` in folder for more info.
+You can replace `en` in jsdelivr cdn with `it` or `pl` and load different languages or replace `@latest` with specific version, example `@2.0.1`.
 
-## 🧰 Options
+Go to `examples/reactjs` and run `npm run start` in folder for more info. Below is available a description of `options` values and all logger methods.
+
+## 🧰 Options / Attributes
 
 | Parameter | Description | Values | Default value | Available from |
 | --- | --- | --- | --- | --- |
@@ -93,6 +105,9 @@ Go to `examples/reactjs` and run `npm run start` in folder for more info.
 | grid | Set grid aspect ratio | `1x1`, `2x2`, `3x3`, etc... or `responsive` | `responsive` | v1.1.0 |
 | image-width | Set width of images (NOTE: grid different than `responsive` overwrite this value) | length units: `100%`, `100px`, `100` | `100%` | v1.1.0 |
 | image-height | Set height of images | length units: `100%`, `100px`, `100` | `100%` | v1.1.0 |
+| border-spacing | Set spacing around images | length units: `5%`, `5px`, `5` | `2px` | v2.1.0 |
+| border-corners | Set border radius of corners: 0: square / 15: rounded / 100: circle | number: `0` to `100` | `5` | v2.1.0 |
+| cache | Enable/disable cache | `enabled` / `disabled` | `enabled` | v2.1.0 |
 
 ## 🔨 Developer Mode
 1. Download [nightly](https://github.com/ptkdev-components/webcomponent-instagram-widget/archive/nightly.zip), [beta](https://github.com/ptkdev-components/webcomponent-instagram-widget/archive/beta.zip) or [stable](https://github.com/ptkdev-components/webcomponent-instagram-widget/archive/master.zip).
