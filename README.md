@@ -1,6 +1,6 @@
 # 🌉 WebComponent: InstagramWidget
 
-[![](https://img.shields.io/badge/version-v1.1.1-lightgrey.svg)](https://github.com/ptkdev-components/webcomponent-instagram-widget/releases) [![](https://img.shields.io/npm/v/@ptkdev/webcomponent-instagram-widget.svg)](https://www.npmjs.com/package/@ptkdev/webcomponent-instagram-widget) [![](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://github.com/ptkdev-components/webcomponent-instagram-widget/blob/master/LICENSE.md) [![](https://img.shields.io/badge/ES-9-F7DF1E.svg)](https://wikipedia.org/wiki/ECMAScript) [![](https://snyk.io/test/github/ptkdev-components/webcomponent-instagram-widget/badge.svg)](https://snyk.io/test/github/ptkdev-components/webcomponent-instagram-widget) [![](https://discordapp.com/api/guilds/383373985666301975/embed.png)](http://discord.ptkdev.io)
+[![](https://img.shields.io/badge/version-v2.0.0-lightgrey.svg)](https://github.com/ptkdev-components/webcomponent-instagram-widget/releases) [![](https://img.shields.io/npm/v/@ptkdev/webcomponent-instagram-widget.svg)](https://www.npmjs.com/package/@ptkdev/webcomponent-instagram-widget) [![](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://github.com/ptkdev-components/webcomponent-instagram-widget/blob/master/LICENSE.md) [![](https://img.shields.io/badge/ES-9-F7DF1E.svg)](https://wikipedia.org/wiki/ECMAScript) [![](https://snyk.io/test/github/ptkdev-components/webcomponent-instagram-widget/badge.svg)](https://snyk.io/test/github/ptkdev-components/webcomponent-instagram-widget) [![](https://discordapp.com/api/guilds/383373985666301975/embed.png)](http://discord.ptkdev.io)
 
 > Simple Instagram Widget: Photos Box of your Instagram Profile for your blog or website with this WebComponent.
 
@@ -13,7 +13,7 @@
 
 ## 📎 Menu
 - 💡 [Features](#-features)
-- 👔 [Screenshot](#-screenshot)
+- 👔 [Screenshot and Demo](#-screenshot)
 - 🚀 [How to use](#-installation)
 - 📚 [Documentation](#-documentation)
 - 👨‍💻 [Contributing](#-contributing)
@@ -24,18 +24,19 @@
 ## 💡 Features
 * [✔️] Easy to use
 * [✔️] MIT License
+* [✔️] Work with: Browserify / Webpack / ReactJS / Angular / Wordpress
 * [✔️] Photos Widget of your Instagram Profile for your blog or website with this WebComponent
 * [✔️] Translations: 🇬🇧 🇮🇹 🇵🇱 (Help me ❤️)
 
 ## 👔 Screenshot
-Photos from @ptkdev account:
+See [Demo here](https://webcomponents-60bc6.firebaseapp.com/). Photos from @ptkdev account:
 
 [![WebComponent: InstagramWidget ](https://raw.githubusercontent.com/ptkdev-components/webcomponent-instagram-widget/nightly/.github/assets/screenshot/webcomponent-instagram-widget-screen1.png)](https://raw.githubusercontent.com/ptkdev-components/webcomponent-instagram-widget/nightly/.github/assets/screenshot/webcomponent-instagram-widget-screen1.png)
 
-## 🚀 Installation
+## 🚀 Installation (Web)
 1. Add html code to your page (and replace `@ptkdev` with your instagram username):
 ```html
-<ptkdev-instagram-widget username="@ptkdev"></ptkdev-instagram-widget>
+<instagram-widget username="@ptkdev" />
 ```
 
 2. Require javascript in yourpage (before `</body>`):
@@ -46,6 +47,42 @@ Photos from @ptkdev account:
 You can replace `en` in jsdelivr cdn with `it` or `pl` and load different languages or replace `@latest` with specific version, example `@1.1.0`.
 
 See folder `examples`, run with `npm run example`. Below is available a description of `options` values and all logger methods.
+
+## 📦 Installation (NPM Module - Browserify/Webpack)
+1. Install npm module: `npm install @ptkdev/webcomponent-instagram-widget --save`
+1. Add html code to your page (and replace `@ptkdev` with your instagram username):
+```html
+<instagram-widget username="@ptkdev" />
+```
+
+2. Require javascript in your app:
+```javascript
+require("@ptkdev/webcomponent-instagram-widget");
+```
+
+## 📖 Installation (Wordpress)
+1. Add html code to your widget / post / html box in your theme (and replace `@ptkdev` with your instagram username):
+```html
+<instagram-widget username="@ptkdev" />
+```
+
+2. Go to `Appearance` --> `Editor` --> Edit `footer.php` --> Add code to end of file before `</body>` if exist:
+```javascript
+<script src="https://cdn.jsdelivr.net/npm/@ptkdev/webcomponent-instagram-widget@latest/dist/lib/en/instagram-widget.min.js"></script>
+```
+
+## ⚛️ Installation (React)
+1. Add html code to your `App.js` template (and replace `@ptkdev` with your instagram username):
+```html
+<instagram-widget username="@ptkdev" />
+```
+
+2. Require javascript in your `public/index.html` (before `</body>`):
+```javascript
+<script src="https://cdn.jsdelivr.net/npm/@ptkdev/webcomponent-instagram-widget@latest/dist/lib/en/instagram-widget.min.js"></script>
+```
+
+Go to `examples/reactjs` and run `npm run start` in folder for more info.
 
 ## 🧰 Options
 
@@ -62,13 +99,6 @@ See folder `examples`, run with `npm run example`. Below is available a descript
 2. Remove `.tpl` suffix from `config.js.tpl` file in `configs` folder and fill it properly.
 3. Run `npm install`
 4. Run `npm run dev`
-
-## ♻️ Change the HTML Tag name
-If you don't like the html tag of this component you can change it as you like: save [latest](https://cdn.jsdelivr.net/npm/@ptkdev/webcomponent-instagram-widget/dist/latest/en/instagram-widget.min.js) library from cdn. Edit last line from: `window.customElements.define("ptkdev-instagram-widget",e)` to `window.customElements.define("mycomponentname",e)` and use it like as:
-```html
-<mycomponentname username="@ptkdev"></mycomponentname>
-<script src="instagram-widget.min.js"></script>
-```
 
 ## 📚 Documentation
 Run `npm run docs`

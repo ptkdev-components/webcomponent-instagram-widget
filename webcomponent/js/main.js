@@ -8,18 +8,16 @@
  * @license: MIT License
  *
  */
-(function() {
-	const template = document.createElement("template");
+class InstagramWidget extends HTMLElement {
+	constructor() {
+		super();
 
-	template.innerHTML = `<style id="instagram-widget-style">{% include 'css/main.css' %}</style>{% include 'main.html' %}`;
+		const template = document.createElement("template");
+		template.innerHTML = `<style id="instagram-widget-style">{% include 'css/main.css' %}</style>{% include 'main.html' %}`;
 
-	class InstagramWidget extends HTMLElement {
-		constructor() {
-			super();
-
-			this.attachShadow({mode: "open"});
-			this.shadowRoot.appendChild(template.content.cloneNode(true));
-		}
+		this.attachShadow({mode: "open"});
+		this.shadowRoot.appendChild(template.content.cloneNode(true));
+	}
 
 		/**
 		 * Get Photos from fetch request
@@ -64,67 +62,84 @@
 					}
 				}
 			});
+
+			let html = "";
+			for (let i = 0; i < photos.length && i < self.getAttribute("items-limit"); i++) {
+				html += `<a href="${photos[i].url}" rel="nofollow external noopener noreferrer" target="_blank" title="${photos[i].caption.substring(0, 100).replace(/"/g, "")}"><img width="${self.getAttribute("image-width")}" height="${self.getAttribute("image-height")}" src="${photos[i].display_url}" alt="${photos[i].caption.substring(0, 100).replace(/"/g, "")}" loading="lazy" /></a> `;
+			}
+			document.querySelector("instagram-widget").shadowRoot.querySelector(".instagram-widget-photos").innerHTML = html;
+
+			if (self.getAttribute("grid") !== "" && self.getAttribute("grid") !== "responsive") {
+				let grid = self.getAttribute("grid").split("x");
+				let width = 100 / parseInt(grid[0]);
+				let images = document.querySelector("instagram-widget").shadowRoot.querySelectorAll(".instagram-widget-photos img");
+				for (let i=0; i < images.length; i++) {
+					images[i].setAttribute("width", `${(width - 1)}%`);
+					images[i].style.maxWidth = "none";
+					images[i].style.maxHeight = "none";
+				}
+			}
+		});
+	}
+
+	/**
+	 * Mount web component
+	 * =====================
+	 *
+	 */
+	connectedCallback() {
+		if (!this.hasAttribute("username")) {
+			this.setAttribute("username", "@ptkdev");
+		}
+		if (!this.hasAttribute("items-limit")) {
+			this.setAttribute("items-limit", 9);
+		}
+		if (!this.hasAttribute("image-width")) {
+			this.setAttribute("image-width", "100%");
+		}
+		if (!this.hasAttribute("image-height")) {
+			this.setAttribute("image-height", "100%");
+		}
+		if (!this.hasAttribute("grid")) {
+			this.setAttribute("grid", "responsive");
 		}
 
-		/**
-		 * Mount web component
-		 * =====================
-		 *
-		 */
-		connectedCallback() {
-			if (!this.hasAttribute("username")) {
-				this.setAttribute("username", "@ptkdev");
-			}
-			if (!this.hasAttribute("items-limit")) {
-				this.setAttribute("items-limit", 9);
-			}
-			if (!this.hasAttribute("image-width")) {
-				this.setAttribute("image-width", "100%");
-			}
-			if (!this.hasAttribute("image-height")) {
-				this.setAttribute("image-height", "100%");
-			}
-			if (!this.hasAttribute("grid")) {
-				this.setAttribute("grid", "responsive");
-			}
+		this.api_fetch();
+	}
 
+	static get observedAttributes() {
+		return ["username", "items-limit", "grid", "image-width", "image-height"];
+	}
+
+	attributeChangedCallback(name_attribute, old_vale, new_value) {
+		if (this.getAttribute(name_attribute) !== new_value) {
 			this.api_fetch();
-		}
-
-		static get observedAttributes() {
-			return ["username", "items-limit", "grid", "image-width", "image-height"];
-		}
-
-		attributeChangedCallback(name_attribute, old_vale, new_value) {
-			if (this.getAttribute(name_attribute) !== new_value) {
-				this.api_fetch();
-			}
-		}
-
-		get username() {
-			return this.getAttribute("username");
-		}
-
-		set username(new_value) {
-			this.setAttribute("username", new_value);
-		}
-
-		get items_limit() {
-			return this.getAttribute("items-limit");
-		}
-
-		set items_limit(new_value) {
-			this.setAttribute("items-limit", new_value);
-		}
-
-		get image_width() {
-			return this.getAttribute("image-width");
-		}
-
-		set image_height(new_value) {
-			this.setAttribute("image-height", new_value);
 		}
 	}
 
-	window.customElements.define("ptkdev-instagram-widget", InstagramWidget);
-})();
+	get username() {
+		return this.getAttribute("username");
+	}
+
+	set username(new_value) {
+		this.setAttribute("username", new_value);
+	}
+
+	get items_limit() {
+		return this.getAttribute("items-limit");
+	}
+
+	set items_limit(new_value) {
+		this.setAttribute("items-limit", new_value);
+	}
+
+	get image_width() {
+		return this.getAttribute("image-width");
+	}
+
+	set image_height(new_value) {
+		this.setAttribute("image-height", new_value);
+	}
+}
+
+window.customElements.define("instagram-widget", InstagramWidget);
