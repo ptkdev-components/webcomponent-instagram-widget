@@ -19,48 +19,30 @@ class InstagramWidget extends HTMLElement {
 		this.shadowRoot.appendChild(template.content.cloneNode(true));
 	}
 
-		/**
-		 * Get Photos from fetch request
-		 * =====================
-		 *
-		 */
-		api_fetch() {
-			let self = this;
-			fetch(`https://www.instagram.com/${this.getAttribute("username").replace("@", "")}/`).then(function(response) {
-				if (response.status === 200) {
-					return response.text();
-				}
-			}).then(function(response) {
-				const instagram_regex = new RegExp(/<script type="text\/javascript">window\._sharedData = (.*);<\/script>/);
-				let json = JSON.parse(response.match(instagram_regex)[1]);
-				let data = json.entry_data.ProfilePage[0].graphql.user.edge_owner_to_timeline_media.edges.splice(0, 9);
+	/**
+	 * Get Photos from fetch request
+	 * =====================
+	 *
+	 */
+	api_fetch() {
+		let self = this;
+		fetch(`https://www.instagram.com/${this.getAttribute("username").replace("@", "")}/`).then(function(response) {
+			if (response.status === 200) {
+				return response.text();
+			}
+		}).then(function(response) {
+			const instagram_regex = new RegExp(/<script type="text\/javascript">window\._sharedData = (.*);<\/script>/);
+			let json = JSON.parse(response.match(instagram_regex)[1]);
+			let data = json.entry_data.ProfilePage[0].graphql.user.edge_owner_to_timeline_media.edges.splice(0, 9);
 
-				const photos = data.map(({node}) => {
-					return {
-						url: `https://www.instagram.com/p/${node.shortcode}/`,
-						thumbnail: node.thumbnail_src,
-						display_url: node.display_url !== undefined ? node.display_url : "",
-						caption: node.edge_media_to_caption.edges[0] &&
-							node.edge_media_to_caption.edges[0].node.text !== undefined ? node.edge_media_to_caption.edges[0].node.text : ""
-					};
-				});
-
-				let html = "";
-				for (let i = 0; i < photos.length && i < self.getAttribute("items-limit"); i++) {
-					html += `<a href="${photos[i].url}" rel="nofollow external noopener noreferrer" target="_blank" title="${photos[i].caption.substring(0, 100).replace(/"/g, "")}"><img width="${self.getAttribute("image-width")}" height="${self.getAttribute("image-height")}" src="${photos[i].display_url}" alt="${photos[i].caption.substring(0, 100).replace(/"/g, "")}" loading="lazy" /></a> `;
-				}
-				document.querySelector("ptkdev-instagram-widget").shadowRoot.querySelector(".instagram-widget-photos").innerHTML = html;
-
-				if (self.getAttribute("grid") !== "" && self.getAttribute("grid") !== "responsive") {
-					let grid = self.getAttribute("grid").split("x");
-					let width = 100 / parseInt(grid);
-					let images = document.querySelector("ptkdev-instagram-widget").shadowRoot.querySelectorAll(".instagram-widget-photos img");
-					for (let i=0; i < images.length; i++) {
-						images[i].setAttribute("width", `${(width - 1)}%`);
-						images[i].style.maxWidth = "none";
-						images[i].style.maxHeight = "none";
-					}
-				}
+			const photos = data.map(({node}) => {
+				return {
+					url: `https://www.instagram.com/p/${node.shortcode}/`,
+					thumbnail: node.thumbnail_src,
+					display_url: node.display_url !== undefined ? node.display_url : "",
+					caption: node.edge_media_to_caption.edges[0] &&
+						node.edge_media_to_caption.edges[0].node.text !== undefined ? node.edge_media_to_caption.edges[0].node.text : ""
+				};
 			});
 
 			let html = "";
