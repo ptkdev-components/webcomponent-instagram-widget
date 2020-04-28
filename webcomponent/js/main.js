@@ -74,8 +74,7 @@ class InstagramWidget extends HTMLElement {
 	api_fetch() {
 		let self = this;
 
-		let url = "https://api.ptkdev.io/v1/webcomponent-instagram.json"; // debug mode, instagram api limits
-		// let url = `https://www.instagram.com/${this.options["username"].replace("@", "")}/?__a=1`
+		let url = `https://www.instagram.com/${this.options["username"].replace("@", "")}/?__a=1`;
 		fetch(url, {"cache": this.options["cache"] === null || this.options["cache"] === "enabled" ? "force-cache" : "default"}).then(function(response) {
 			if (response.status === 200) {
 				return response.json();

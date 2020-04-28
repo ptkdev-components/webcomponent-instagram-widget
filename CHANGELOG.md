@@ -1,4 +1,4 @@
-# v2.1.0 (April 28, 2020)
+# v2.1.1 (April 28, 2020)
 * New attribute: cache
 * New attribute: border-corners
 * New attribute: border-spacing
