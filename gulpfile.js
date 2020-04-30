@@ -59,8 +59,27 @@ gulp.task("build-js", function() {
 			envOptions: {autoescape: false},
 		    path: [`./dist/${version}/`]
 	    }))
-		.pipe(gulp_minifyjs({output: {comments: false}}))
 		.pipe(gulp_rename("instagram-widget.js"))
+		.pipe(gulp.dest(`./dist/${version}/js/`));
+});
+
+gulp.task("build-js-minify", function() {
+	let files = [
+		"./dist/dev/js/instagram-widget.js"
+	];
+
+	const translate = require(`./translations/${language}.js`);
+	delete require.cache[require.resolve(`./translations/${language}.js`)];
+
+	return gulp.src(files)
+		.pipe(gulp_concat({path: "full.min.tmp"}))
+		.pipe(gulp_data({package: pkg, translate: translate}))
+		.pipe(gulp_nunjucks_render({
+			envOptions: {autoescape: false},
+		    path: [`./dist/${version}/`]
+		}))
+		.pipe(gulp_minifyjs({output: {comments: false}}))
+		.pipe(gulp_rename("instagram-widget.min.js"))
 		.pipe(gulp.dest(`./dist/${version}/js/`));
 });
 
@@ -87,13 +106,13 @@ gulp.task("build-version-latest-lib", function() {
 			envOptions: {autoescape: false},
 			path: [`./dist/dev/`]
 		}))
-		.pipe(gulp_rename("instagram-widget.min.js"))
+		.pipe(gulp_rename("instagram-widget.js"))
 		.pipe(gulp.dest(`./dist/lib/${language}/`));
 });
 
-gulp.task("build-version-latest-module", function() {
+gulp.task("build-version-latest-lib-minify", function() {
 	let files = [
-		"./dist/dev/module.njk"
+		"./dist/dev/lib.min.njk"
 	];
 
 	const translate = require(`./translations/${language}.js`);
@@ -106,7 +125,7 @@ gulp.task("build-version-latest-module", function() {
 			path: [`./dist/dev/`]
 		}))
 		.pipe(gulp_rename("instagram-widget.min.js"))
-		.pipe(gulp.dest(`./dist/module/${language}/`));
+		.pipe(gulp.dest(`./dist/lib/${language}/`));
 });
 
 /**
@@ -147,5 +166,5 @@ gulp.task("browser-sync", function() {
 *
 */
 gulp.task("start", gulp.series("build-css", "build-html", "build-js", "browser-sync"));
-gulp.task("dist", gulp.series("build-css", "build-html", "build-js"));
-gulp.task("release", gulp.series("build-version-latest-lib", "build-version-latest-module"));
+gulp.task("dist", gulp.series("build-css", "build-html", "build-js", "build-js-minify"));
+gulp.task("release", gulp.series("build-version-latest-lib", "build-version-latest-lib-minify"));

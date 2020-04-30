@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PtkdevInstagramWidgetWcComponent } from './components/ptkdev-instagram-widget-wc/ptkdev-instagram-widget-wc.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import '@ptkdev/webcomponent-instagram-widget';
 
 @NgModule({
   declarations: [

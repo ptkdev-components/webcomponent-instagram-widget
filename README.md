@@ -1,6 +1,6 @@
 # 🌉 WebComponent: InstagramWidget
 
-[![](https://img.shields.io/badge/version-v2.3.0--nightly.20200430-lightgrey.svg)](https://github.com/ptkdev-components/webcomponent-instagram-widget/releases) [![](https://img.shields.io/npm/v/@ptkdev/webcomponent-instagram-widget.svg)](https://www.npmjs.com/package/@ptkdev/webcomponent-instagram-widget) [![](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://github.com/ptkdev-components/webcomponent-instagram-widget/blob/master/LICENSE.md) [![](https://img.shields.io/badge/ES-9-F7DF1E.svg)](https://wikipedia.org/wiki/ECMAScript) [![](https://snyk.io/test/github/ptkdev-components/webcomponent-instagram-widget/badge.svg)](https://snyk.io/test/github/ptkdev-components/webcomponent-instagram-widget) [![](https://discordapp.com/api/guilds/383373985666301975/embed.png)](http://discord.ptkdev.io)
+[![](https://img.shields.io/badge/version-v2.3.0-lightgrey.svg)](https://github.com/ptkdev-components/webcomponent-instagram-widget/releases) [![](https://img.shields.io/npm/v/@ptkdev/webcomponent-instagram-widget.svg)](https://www.npmjs.com/package/@ptkdev/webcomponent-instagram-widget) [![](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://github.com/ptkdev-components/webcomponent-instagram-widget/blob/master/LICENSE.md) [![](https://img.shields.io/badge/ES-9-F7DF1E.svg)](https://wikipedia.org/wiki/ECMAScript) [![](https://snyk.io/test/github/ptkdev-components/webcomponent-instagram-widget/badge.svg)](https://snyk.io/test/github/ptkdev-components/webcomponent-instagram-widget) [![](https://discordapp.com/api/guilds/383373985666301975/embed.png)](http://discord.ptkdev.io)
 
 > Simple Instagram Widget: Photos Box of your Instagram Profile for your blog or website with this WebComponent.
 
@@ -18,7 +18,7 @@
 - 🕹 [Demo](https://codepen.io/ptkdev/pen/WNQOYqy)
 - 👔 [Screenshot](#-screenshot)
 - 🚀 [How to use](#-installation)
-- - 🌎 [Web (Generic)](#-installation-web)
+- - 🌎 [Web](#-installation-web)
 - - 📦 [Webpack/Browserify](#-installation-npm-module---browserifywebpack)
 - - 📖 [Wordpress](#-installation-wordpress)
 - - ⚛️ [React](#%EF%B8%8F-installation-react)
@@ -68,8 +68,10 @@ See folder `examples`, run with `npm run example`. Below is available a descript
 ```javascript
 require("@ptkdev/webcomponent-instagram-widget");
 ```
-
-You can replace `en` in jsdelivr cdn with `it` or `pl` and load different languages or replace `@latest` with specific version, example `@2.0.1`.
+or
+```javascript
+import '@ptkdev/webcomponent-instagram-widget';
+```
 
 See folder `examples`, run with `npm run example`. Below is available a description of `options` values and all logger methods.
 
@@ -89,32 +91,28 @@ You can replace `en` in jsdelivr cdn with `it` or `pl` and load different langua
 See folder `examples`, run with `npm run example`. Below is available a description of `options` values and all logger methods.
 
 ## ⚛️ Installation (React)
-1. Add html code to your `App.js` template (and replace `@ptkdev` with your instagram username):
+1. Install npm module with `npm install @ptkdev/webcomponent-instagram-widget@latest --save`:
+2. Import module in your `src/App.js` on header:
+```javascript
+import '@ptkdev/webcomponent-instagram-widget';
+```
+3. Add html code to your `App.js` template (and replace `@ptkdev` with your instagram username):
 ```html
 <instagram-widget username="@ptkdev" />
 ```
-
-2. Require javascript in your `public/index.html` (before `</body>`):
-```javascript
-<script src="https://cdn.jsdelivr.net/npm/@ptkdev/webcomponent-instagram-widget@latest/dist/lib/en/instagram-widget.min.js"></script>
-```
-
-You can replace `en` in jsdelivr cdn with `it` or `pl` and load different languages or replace `@latest` with specific version, example `@2.0.1`.
 
 Go to `examples/reactjs` and run `npm run start` in folder for more info. Below is available a description of `options` values and all logger methods.
 
 ## 🅰️ Installation (Angular)
-1. Add html code to your `app.component.html` (and replace `@ptkdev` with your instagram username):
+1. Install npm module with `npm install @ptkdev/webcomponent-instagram-widget@latest --save`:
+2. Import module in your `app/app.modules.ts` on header:
+```javascript
+import '@ptkdev/webcomponent-instagram-widget';
+```
+3. Add html code to your html component (and replace `@ptkdev` with your instagram username):
 ```html
 <instagram-widget username="@ptkdev" />
 ```
-
-2. Inlude javascript in your `index.html` (before `</body>`):
-```javascript
-<script src="https://cdn.jsdelivr.net/npm/@ptkdev/webcomponent-instagram-widget@latest/dist/lib/en/instagram-widget.min.js"></script>
-```
-
-You can replace `en` in jsdelivr cdn with `it` or `pl` and load different languages or replace `@latest` with specific version, example `@2.0.1`.
 
 Demo: https://webcomponents-60bc6.firebaseapp.com/instagram-widget
 

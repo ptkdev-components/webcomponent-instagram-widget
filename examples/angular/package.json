@@ -19,6 +19,7 @@
     "@angular/platform-browser": "~9.1.3",
     "@angular/platform-browser-dynamic": "~9.1.3",
     "@angular/router": "~9.1.3",
+    "@ptkdev/webcomponent-instagram-widget": "latest",
     "bootstrap": "^4.4.1",
     "jquery": "^3.5.0",
     "rxjs": "~6.5.4",
