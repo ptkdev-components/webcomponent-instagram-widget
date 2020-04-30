@@ -40,7 +40,7 @@
 ## 👔 Screenshot
 See [Demo here](https://codepen.io/ptkdev/pen/WNQOYqy). Photos from @ptkdev account:
 
-[![WebComponent: InstagramWidget ](https://raw.githubusercontent.com/ptkdev-components/webcomponent-instagram-widget/nightly/.github/assets/screenshot/webcomponent-instagram-widget-screen1.png)](https://raw.githubusercontent.com/ptkdev-components/webcomponent-instagram-widget/nightly/.github/assets/screenshot/webcomponent-instagram-widget-screen1.png)
+[![WebComponent: InstagramWidget ](https://raw.githubusercontent.com/ptkdev-components/webcomponent-instagram-widget/nightly/.github/assets/screenshot/webcomponent-instagram-widget-screen1.png?)](https://raw.githubusercontent.com/ptkdev-components/webcomponent-instagram-widget/nightly/.github/assets/screenshot/webcomponent-instagram-widget-screen1.png)
 
 ## 🚀 Installation (Web)
 1. Add html code to your page (and replace `@ptkdev` with your instagram username):
