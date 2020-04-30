@@ -47,7 +47,6 @@ See [Demo here](https://codepen.io/ptkdev/pen/WNQOYqy). Photos from @ptkdev acco
 ```html
 <instagram-widget username="@ptkdev" />
 ```
-
 2. Require javascript in yourpage (before `</body>`):
 ```html
 <script src="https://cdn.jsdelivr.net/npm/@ptkdev/webcomponent-instagram-widget@latest/dist/lib/en/instagram-widget.min.js"></script>
@@ -59,12 +58,11 @@ See folder `examples`, run with `npm run example`. Below is available a descript
 
 ## 📦 Installation (NPM Module - Browserify/Webpack)
 1. Install npm module: `npm install @ptkdev/webcomponent-instagram-widget --save`
-1. Add html code to your page (and replace `@ptkdev` with your instagram username):
+2. Add html code to your page (and replace `@ptkdev` with your instagram username):
 ```html
 <instagram-widget username="@ptkdev" />
 ```
-
-2. Require javascript in your app:
+3. Require javascript in your app:
 ```javascript
 require("@ptkdev/webcomponent-instagram-widget");
 ```
@@ -80,7 +78,6 @@ See folder `examples`, run with `npm run example`. Below is available a descript
 ```html
 <instagram-widget username="@ptkdev" />
 ```
-
 2. Go to `Appearance` --> `Editor` --> Edit `footer.php` --> Add code to end of file before `</body>` if exist:
 ```javascript
 <script src="https://cdn.jsdelivr.net/npm/@ptkdev/webcomponent-instagram-widget@latest/dist/lib/en/instagram-widget.min.js"></script>
