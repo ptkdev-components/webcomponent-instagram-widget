@@ -70,6 +70,12 @@ class InstagramWidget extends HTMLElement {
 				images[i].style.borderRadius = `${this.options["border-corners"]}%`;
 				images[i].style.margin = this.options["border-spacing"];
 			}
+		} else {
+			let images = document.querySelector("instagram-widget").shadowRoot.querySelectorAll(".instagram-widget-photos img");
+			for (let i=0; i < images.length; i++) {
+				images[i].style.borderRadius = `${this.options["border-corners"]}%`;
+				images[i].style.margin = this.options["border-spacing"];
+			}
 		}
 	}
 
