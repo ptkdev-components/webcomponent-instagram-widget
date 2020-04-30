@@ -16,7 +16,7 @@
 ## 📎 Menu
 - 💡 [Features](#-features)
 - 🕹 [Demo](https://codepen.io/ptkdev/pen/WNQOYqy)
-- 👔 [Screenshot and Demo](#-screenshot)
+- 👔 [Screenshot](#-screenshot)
 - 🚀 [How to use](#-installation)
 - 📚 [Documentation](#-documentation)
 - 👨‍💻 [Contributing](#-contributing)
