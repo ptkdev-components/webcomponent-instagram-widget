@@ -29,9 +29,14 @@ class InstagramWidget extends HTMLElement {
 			"border-corners": "5"
 		};
 
-		this.options = this.options_default;
+		this.options = Object.create(this.options_default);
 	}
 
+	/**
+	 * Build HTML grid
+	 * =====================
+	 *
+	 */
 	build_html() {
 		let data = this.json.graphql.user.edge_owner_to_timeline_media.edges;
 
@@ -58,7 +63,8 @@ class InstagramWidget extends HTMLElement {
 			let width = 100 / parseInt(grid[0]);
 			let images = document.querySelector("instagram-widget").shadowRoot.querySelectorAll(".instagram-widget-photos img");
 			for (let i=0; i < images.length; i++) {
-				images[i].setAttribute("width", `${(width - 1)}%`);
+				images[i].removeAttribute("width");
+				images[i].style.width = `calc(${(width)}% - (${this.options["border-spacing"]} * (${parseInt(grid[0])} * 2)))`;
 				images[i].style.maxWidth = "none";
 				images[i].style.maxHeight = "none";
 				images[i].style.borderRadius = `${this.options["border-corners"]}%`;
@@ -66,6 +72,7 @@ class InstagramWidget extends HTMLElement {
 			}
 		}
 	}
+
 	/**
 	 * Get Photos from fetch request
 	 * =====================

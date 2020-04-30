@@ -1,6 +1,6 @@
 # 🌉 WebComponent: InstagramWidget
 
-[![](https://img.shields.io/badge/version-v2.1.1-lightgrey.svg)](https://github.com/ptkdev-components/webcomponent-instagram-widget/releases) [![](https://img.shields.io/npm/v/@ptkdev/webcomponent-instagram-widget.svg)](https://www.npmjs.com/package/@ptkdev/webcomponent-instagram-widget) [![](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://github.com/ptkdev-components/webcomponent-instagram-widget/blob/master/LICENSE.md) [![](https://img.shields.io/badge/ES-9-F7DF1E.svg)](https://wikipedia.org/wiki/ECMAScript) [![](https://snyk.io/test/github/ptkdev-components/webcomponent-instagram-widget/badge.svg)](https://snyk.io/test/github/ptkdev-components/webcomponent-instagram-widget) [![](https://discordapp.com/api/guilds/383373985666301975/embed.png)](http://discord.ptkdev.io)
+[![](https://img.shields.io/badge/version-v2.2.0-lightgrey.svg)](https://github.com/ptkdev-components/webcomponent-instagram-widget/releases) [![](https://img.shields.io/npm/v/@ptkdev/webcomponent-instagram-widget.svg)](https://www.npmjs.com/package/@ptkdev/webcomponent-instagram-widget) [![](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://github.com/ptkdev-components/webcomponent-instagram-widget/blob/master/LICENSE.md) [![](https://img.shields.io/badge/ES-9-F7DF1E.svg)](https://wikipedia.org/wiki/ECMAScript) [![](https://snyk.io/test/github/ptkdev-components/webcomponent-instagram-widget/badge.svg)](https://snyk.io/test/github/ptkdev-components/webcomponent-instagram-widget) [![](https://discordapp.com/api/guilds/383373985666301975/embed.png)](http://discord.ptkdev.io)
 
 > Simple Instagram Widget: Photos Box of your Instagram Profile for your blog or website with this WebComponent.
 
@@ -15,6 +15,7 @@
 
 ## 📎 Menu
 - 💡 [Features](#-features)
+- 👔 [Demo](#-screenshot)
 - 👔 [Screenshot and Demo](#-screenshot)
 - 🚀 [How to use](#-installation)
 - 📚 [Documentation](#-documentation)
@@ -98,15 +99,15 @@ Go to `examples/reactjs` and run `npm run start` in folder for more info. Below 
 
 ## 🧰 Options / Attributes
 
-| Parameter | Description | Values | Default value | Available from |
+| Parameter | Description | Values | Default value | Available since |
 | --- | --- | --- | --- | --- |
 | username | Set your instagram username | Your instagram username with or without @ | `@ptkdev` | v1.0.0 |
-| items-limit | Set the max number of pictures | The max number of shown pictures  | `9` | v1.1.0 |
+| items-limit | Set the max number of pictures | number: from `0` to `12`  | `9` | v1.1.0 |
 | grid | Set grid aspect ratio | `1x1`, `2x2`, `3x3`, etc... or `responsive` | `responsive` | v1.1.0 |
-| image-width | Set width of images (NOTE: grid different than `responsive` overwrite this value) | length units: `100%`, `100px`, `100` | `100%` | v1.1.0 |
+| image-width | Set width of images (NOTE: grid different than `responsive` overwrite this value) | length units: `100%`, `100px`, `100pt` | `100%` | v1.1.0 |
 | image-height | Set height of images | length units: `100%`, `100px`, `100` | `100%` | v1.1.0 |
-| border-spacing | Set spacing around images | length units: `5%`, `5px`, `5` | `2px` | v2.1.0 |
-| border-corners | Set border radius of corners: 0: square / 15: rounded / 100: circle | number: `0` to `100` | `5` | v2.1.0 |
+| border-spacing | Set spacing around images | length units: `5%`, `5px`, `5pt` | `2px` | v2.1.0 |
+| border-corners | Set border radius of corners: 0: square / 15: rounded / 100: circle | number: from `0` to `100` | `5` | v2.1.0 |
 | cache | Enable/disable cache | `enabled` / `disabled` | `enabled` | v2.1.0 |
 
 ## 🔨 Developer Mode
