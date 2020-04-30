@@ -15,7 +15,7 @@
 
 ## 📎 Menu
 - 💡 [Features](#-features)
-- 👔 [Demo](#-screenshot)
+- 🕹 [Demo](https://codepen.io/ptkdev/pen/WNQOYqy)
 - 👔 [Screenshot and Demo](#-screenshot)
 - 🚀 [How to use](#-installation)
 - 📚 [Documentation](#-documentation)
@@ -32,7 +32,7 @@
 * [✔️] Translations: 🇬🇧 🇮🇹 🇵🇱 (Help me ❤️)
 
 ## 👔 Screenshot
-See [Demo here](https://codepen.io/ptkdev/full/WNQOYqy). Photos from @ptkdev account:
+See [Demo here](https://codepen.io/ptkdev/pen/WNQOYqy). Photos from @ptkdev account:
 
 [![WebComponent: InstagramWidget ](https://raw.githubusercontent.com/ptkdev-components/webcomponent-instagram-widget/nightly/.github/assets/screenshot/webcomponent-instagram-widget-screen1.png)](https://raw.githubusercontent.com/ptkdev-components/webcomponent-instagram-widget/nightly/.github/assets/screenshot/webcomponent-instagram-widget-screen1.png)
 
@@ -97,7 +97,7 @@ You can replace `en` in jsdelivr cdn with `it` or `pl` and load different langua
 
 Go to `examples/reactjs` and run `npm run start` in folder for more info. Below is available a description of `options` values and all logger methods.
 
-## ⚛️ Installation (Angular)
+## 🅰️ Installation (Angular)
 1. Add html code to your `app.component.html` (and replace `@ptkdev` with your instagram username):
 ```html
 <instagram-widget username="@ptkdev" />
