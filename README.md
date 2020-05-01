@@ -75,7 +75,7 @@ See folder `examples`, run with `npm run example`. Below is available a descript
 
 ## 📖 Installation (Wordpress)
 1. Download [wordpress-plugin](https://github.com/ptkdev-components/webcomponent-instagram-widget/raw/nightly/dist/wordpress/instagram-widget-wordpress-plugin.zip) and install it.
-1. Add code to your html widget, example: `Appearance` --> `Widget` --> insert `HTML Widget` and pase html code (and replace `@ptkdev` with your instagram username):
+1. Add code to your html widget, example: `Appearance` --> `Widget` --> insert `HTML Widget` and paste html code (and replace `@ptkdev` with your instagram username):
 ```html
 <instagram-widget username="@ptkdev" grid="3x3" />
 ```
