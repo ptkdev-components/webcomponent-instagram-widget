@@ -15,7 +15,7 @@ export class PtkdevInstagramWidgetWcComponent implements OnInit {
     itemsLimit: 9,
     grid: '3x3',
     imageWidth: '100%',
-    imageHeight: '500px',
+    imageHeight: '100%',
     borderSpacing: '2px',
     borderCorners: '5',
   };

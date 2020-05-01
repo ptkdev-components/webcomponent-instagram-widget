@@ -128,6 +128,24 @@ gulp.task("build-version-latest-lib-minify", function() {
 		.pipe(gulp.dest(`./dist/lib/${language}/`));
 });
 
+gulp.task("build-version-wordpress-plugin", function() {
+	let files = [
+		"./dist/dev/wordpress-plugin.njk"
+	];
+
+	const translate = require(`./translations/${language}.js`);
+	delete require.cache[require.resolve(`./translations/${language}.js`)];
+
+	return gulp.src(files)
+		.pipe(gulp_data({package: pkg, translate: translate}))
+		.pipe(gulp_nunjucks_render({
+			envOptions: {autoescape: false},
+			path: [`./dist/dev/`]
+		}))
+		.pipe(gulp_rename("instagram-widget.php"))
+		.pipe(gulp.dest(`./dist/wordpress/`));
+});
+
 /**
 * Task: browser-sync
 * =====================
@@ -168,3 +186,4 @@ gulp.task("browser-sync", function() {
 gulp.task("start", gulp.series("build-css", "build-html", "build-js", "browser-sync"));
 gulp.task("dist", gulp.series("build-css", "build-html", "build-js", "build-js-minify"));
 gulp.task("release", gulp.series("build-version-latest-lib", "build-version-latest-lib-minify"));
+gulp.task("wordpress-plugin", gulp.series("build-version-wordpress-plugin"));

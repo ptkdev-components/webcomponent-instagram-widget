@@ -1,4 +1,4 @@
-// WebComponent: InstagramWidget 2.3.0 - Collection of WebComponents by Patryk Rzucidlo [@PTKDev] <support@ptkdev.io>
+// WebComponent: InstagramWidget 2.4.0 - Collection of WebComponents by Patryk Rzucidlo [@PTKDev] <support@ptkdev.io>
 // https://github.com/ptkdev-components/webcomponent-instagram-widget
 (function() { /**
  * InstagramWidget WebComponent
@@ -15,7 +15,7 @@ class InstagramWidget extends HTMLElement {
 		super();
 
 		const template = document.createElement("template");
-		template.innerHTML = `<style id="instagram-widget-style">#instagram-widget *{margin:0;padding:0;line-height:0}#instagram-widget .instagram-widget-container{text-align:center;justify-content:center;font-weight:500}#instagram-widget .instagram-widget-photos li img{border-radius:5%;background-color:#f8f8ff;object-fit:cover;object-position:50% 50%;max-width:300px;max-height:300px;min-width:80px;min-height:80px;margin:2px}#instagram-widget .instagram-content ul{list-style-type:none;padding-inline-start:0;width:100%}#instagram-widget .instagram-widget-photos li{list-style-type:none;display:inline}</style><div id="instagram-widget" version="2.3.0">
+		template.innerHTML = `<style id="instagram-widget-style">#instagram-widget *{margin:0;padding:0;line-height:0}#instagram-widget .instagram-widget-container{text-align:center;justify-content:center;font-weight:500}#instagram-widget .instagram-widget-photos li img{border-radius:5%;background-color:#f8f8ff;object-fit:cover;object-position:50% 50%;max-width:300px;max-height:300px;min-width:80px;min-height:80px;margin:2px}#instagram-widget .instagram-content ul{list-style-type:none;padding-inline-start:0;width:100%}#instagram-widget .instagram-widget-photos li{list-style-type:none;display:inline}</style><div id="instagram-widget" version="2.4.0">
 	<div class="instagram-widget-container">
 		<div class="instagram-widget-content">
 			<ul class="instagram-widget-photos"></ul>
@@ -34,7 +34,8 @@ class InstagramWidget extends HTMLElement {
 			"grid": "responsive",
 			"cache": "enabled",
 			"border-spacing": "2px",
-			"border-corners": "5"
+			"border-corners": "5",
+			"force-square": "yes"
 		};
 
 		this.options = Object.create(this.options_default);
@@ -77,12 +78,23 @@ class InstagramWidget extends HTMLElement {
 				images[i].style.maxHeight = "none";
 				images[i].style.borderRadius = `${this.options["border-corners"]}%`;
 				images[i].style.margin = this.options["border-spacing"];
+
+				if (this.options["force-square"] === "yes") {
+					images[i].removeAttribute("height");
+					images[i].style.height = `${document.querySelector("instagram-widget").shadowRoot.querySelector(".instagram-widget-photos img").clientWidth}px`;
+				}
 			}
 		} else {
 			let images = document.querySelector("instagram-widget").shadowRoot.querySelectorAll(".instagram-widget-photos img");
 			for (let i=0; i < images.length; i++) {
 				images[i].style.borderRadius = `${this.options["border-corners"]}%`;
 				images[i].style.margin = this.options["border-spacing"];
+
+				if (this.options["force-square"] === "yes") {
+					images[i].removeAttribute("height");
+					images[i].style.maxHeight = "none";
+					images[i].style.height = `${document.querySelector("instagram-widget").shadowRoot.querySelector(".instagram-widget-photos img").clientWidth}px`;
+				}
 			}
 		}
 	}
@@ -103,11 +115,19 @@ class InstagramWidget extends HTMLElement {
 		}).then(function(response) {
 			self.json = response;
 			self.build_html();
+			window.onresize = () => {
+				let images = document.querySelector("instagram-widget").shadowRoot.querySelectorAll(".instagram-widget-photos img");
+				for (let i=0; i < images.length; i++) {
+					if (self.options["force-square"] === "yes") {
+						images[i].style.height = `${document.querySelector("instagram-widget").shadowRoot.querySelector(".instagram-widget-photos img").clientWidth}px`;
+					}
+				}
+			};
 		});
 	}
 
 	static get observedAttributes() {
-		return ["username", "items-limit", "grid", "image-width", "image-height", "border-spacing", "border-corners", "cache"];
+		return ["username", "items-limit", "grid", "image-width", "image-height", "border-spacing", "border-corners", "force-square", "cache"];
 	}
 
 	attributeChangedCallback(name_attribute, old_vale, new_value) {

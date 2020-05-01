@@ -2,6 +2,7 @@
 #######
 configs/
 dist/dev/
+/dist/wordpress/
 examples/
 modules/
 scripts/

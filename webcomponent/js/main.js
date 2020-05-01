@@ -26,7 +26,8 @@ class InstagramWidget extends HTMLElement {
 			"grid": "responsive",
 			"cache": "enabled",
 			"border-spacing": "2px",
-			"border-corners": "5"
+			"border-corners": "5",
+			"force-square": "yes"
 		};
 
 		this.options = Object.create(this.options_default);
@@ -69,12 +70,23 @@ class InstagramWidget extends HTMLElement {
 				images[i].style.maxHeight = "none";
 				images[i].style.borderRadius = `${this.options["border-corners"]}%`;
 				images[i].style.margin = this.options["border-spacing"];
+
+				if (this.options["force-square"] === "yes") {
+					images[i].removeAttribute("height");
+					images[i].style.height = `${document.querySelector("instagram-widget").shadowRoot.querySelector(".instagram-widget-photos img").clientWidth}px`;
+				}
 			}
 		} else {
 			let images = document.querySelector("instagram-widget").shadowRoot.querySelectorAll(".instagram-widget-photos img");
 			for (let i=0; i < images.length; i++) {
 				images[i].style.borderRadius = `${this.options["border-corners"]}%`;
 				images[i].style.margin = this.options["border-spacing"];
+
+				if (this.options["force-square"] === "yes") {
+					images[i].removeAttribute("height");
+					images[i].style.maxHeight = "none";
+					images[i].style.height = `${document.querySelector("instagram-widget").shadowRoot.querySelector(".instagram-widget-photos img").clientWidth}px`;
+				}
 			}
 		}
 	}
@@ -95,11 +107,19 @@ class InstagramWidget extends HTMLElement {
 		}).then(function(response) {
 			self.json = response;
 			self.build_html();
+			window.onresize = () => {
+				let images = document.querySelector("instagram-widget").shadowRoot.querySelectorAll(".instagram-widget-photos img");
+				for (let i=0; i < images.length; i++) {
+					if (self.options["force-square"] === "yes") {
+						images[i].style.height = `${document.querySelector("instagram-widget").shadowRoot.querySelector(".instagram-widget-photos img").clientWidth}px`;
+					}
+				}
+			};
 		});
 	}
 
 	static get observedAttributes() {
-		return ["username", "items-limit", "grid", "image-width", "image-height", "border-spacing", "border-corners", "cache"];
+		return ["username", "items-limit", "grid", "image-width", "image-height", "border-spacing", "border-corners", "force-square", "cache"];
 	}
 
 	attributeChangedCallback(name_attribute, old_vale, new_value) {
