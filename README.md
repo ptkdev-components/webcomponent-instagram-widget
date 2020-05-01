@@ -74,7 +74,7 @@ import '@ptkdev/webcomponent-instagram-widget';
 See folder `examples`, run with `npm run example`. Below is available a description of `options` values and all logger methods.
 
 ## 📖 Installation (Wordpress)
-1. Download [wordpress-plugin](https://github.com/ptkdev-components/webcomponent-instagram-widget/blob/nightly/dist/wordpress/instagram-widget-wordpress-plugin.zip) and install it.
+1. Download [wordpress-plugin](https://github.com/ptkdev-components/webcomponent-instagram-widget/raw/nightly/dist/wordpress/instagram-widget-wordpress-plugin.zip) and install it.
 1. Add code to your html widget, example: `Appearance` --> `Widget` --> insert `HTML Widget` and pase html code (and replace `@ptkdev` with your instagram username):
 ```html
 <instagram-widget username="@ptkdev" grid="3x3" />
@@ -123,6 +123,11 @@ Go to `examples/angular` and run `yarn install` then `yarn start` in folder for 
 | border-corners | Set border radius of corners: `0`: square / `15`: rounded / `100`: circle | number: from `0` to `100` | `5` | v2.1.0 |
 | force-square | Force square aspect ratio if you post photos with different size on your instagram | `yes` / `no` | `yes` | v2.4.0 |
 | cache | Enable/disable cache | `enabled` / `disabled` | `enabled` | v2.1.0 |
+
+#### HTML Code with attributes:
+```html
+<instagram-widget username="@ptkdev" grid="3x3" force-square="yes" items-limit="9" image-width="100%" image-height="100%" border-corners="5" border-spacing="2px" />
+```
 
 ## 🔨 Developer Mode
 1. Download [nightly](https://github.com/ptkdev-components/webcomponent-instagram-widget/archive/nightly.zip), [beta](https://github.com/ptkdev-components/webcomponent-instagram-widget/archive/beta.zip) or [stable](https://github.com/ptkdev-components/webcomponent-instagram-widget/archive/master.zip).
