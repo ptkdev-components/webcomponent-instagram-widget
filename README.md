@@ -33,6 +33,8 @@
 ## 💡 Features
 * [✔️] Easy to use
 * [✔️] MIT License
+* [✔️] Without jQuery depencence
+* [✔️] Configurable with attributes
 * [✔️] Work with: Browserify / Webpack / ReactJS / Angular / Wordpress
 * [✔️] Photos Widget of your Instagram Profile for your blog or website with this WebComponent
 * [✔️] Translations: 🇬🇧 🇮🇹 🇵🇱 (Help me ❤️)
