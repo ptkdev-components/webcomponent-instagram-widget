@@ -9,10 +9,10 @@ about: Create a report to help us improve
 
 <!-- Replace or update the values below with your own: -->
 
-- **Logger Version:** v1.0.0
+- **WebComponent Version:** v1.0.0
 - **Node Version:** v13.0.0
 - **Operating System:** Windows 10
-- **Terminal:** Windows Powershell
+- **Browser:** Google Chrome v80
 
 ### Expected Behavior
 
