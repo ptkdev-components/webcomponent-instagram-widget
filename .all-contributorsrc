@@ -24,6 +24,7 @@
 	{
       "login": "emanuelefricano93",
       "name": "Emanuele Fricano",
+	  "profile": "https://github.com/emanuelefricano93",
 	  "avatar_url": "https://avatars1.githubusercontent.com/u/26500344?v=4",
       "contributions": [
         "code",
@@ -33,6 +34,7 @@
 	{
       "login": "smalluban",
       "name": "Dominik Lubański",
+	  "profile": "https://github.com/smalluban",
 	  "avatar_url": "https://avatars1.githubusercontent.com/u/1906677?v=4",
       "contributions": [
         "bug"
