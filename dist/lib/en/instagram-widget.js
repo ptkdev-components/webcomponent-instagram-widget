@@ -129,8 +129,8 @@ class InstagramWidget extends HTMLElement {
 			this.build_html();
 			window.addEventListener("resize", function(event) {
 				this.resize(event);
-			}.bind(this), false);
-		}.bind(this), false);
+			}.bind(this));
+		}.bind(this));
 	}
 
 	static get observedAttributes() {
