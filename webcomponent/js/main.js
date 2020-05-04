@@ -31,6 +31,19 @@ class InstagramWidget extends HTMLElement {
 		};
 
 		this.options = Object.create(this.options_default);
+
+		this.resize_event = function(event) {
+			this.resize(event);
+		}.bind(this);
+	}
+
+	/**
+	 * Append web component
+	 * =====================
+	 *
+	 */
+	connectedCallback() {
+		window.addEventListener("resize", this.resize_event);
 	}
 
 	/**
@@ -119,9 +132,6 @@ class InstagramWidget extends HTMLElement {
 		}).then(function(response) {
 			this.json = response;
 			this.build_html();
-			window.addEventListener("resize", function(event) {
-				this.resize(event);
-			}.bind(this));
 		}.bind(this));
 	}
 
@@ -147,6 +157,15 @@ class InstagramWidget extends HTMLElement {
 				  }
 			  }
 		}
+	}
+
+	/**
+	 * Remove web component
+	 * =====================
+	 *
+	 */
+	disconnectedCallback() {
+		window.removeEventListener("resize", this.resize_event);
 	}
 }
 
