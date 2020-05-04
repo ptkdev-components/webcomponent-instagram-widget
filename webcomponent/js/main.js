@@ -57,12 +57,12 @@ class InstagramWidget extends HTMLElement {
 		for (let i = 0; i < photos.length && i < this.options["items-limit"]; i++) {
 			html += `<li><a href="${photos[i].url}" rel="nofollow external noopener noreferrer" target="_blank" title="${photos[i].caption.substring(0, 100).replace(/"/g, "")}"><img width="${this.options["image-width"]}" height="${this.options["image-height"]}" src="${photos[i].display_url}" alt="${photos[i].caption.substring(0, 100).replace(/"/g, "")}" loading="lazy" /></a></li>`;
 		}
-		document.querySelector("instagram-widget").shadowRoot.querySelector(".instagram-widget-photos").innerHTML = html;
+		this.shadowRoot.querySelector(".instagram-widget-photos").innerHTML = html;
 
 		if (this.options["grid"] !== "" && this.options["grid"] !== null && this.options["grid"] !== "responsive") {
 			let grid = this.options["grid"].split("x");
 			let width = 100 / parseInt(grid[0]);
-			let images = document.querySelector("instagram-widget").shadowRoot.querySelectorAll(".instagram-widget-photos img");
+			let images = this.shadowRoot.querySelectorAll(".instagram-widget-photos img");
 			for (let i=0; i < images.length; i++) {
 				images[i].removeAttribute("width");
 				images[i].style.width = `calc(${(width)}% - (${this.options["border-spacing"]} * (${parseInt(grid[0])} * 2)))`;
@@ -73,11 +73,11 @@ class InstagramWidget extends HTMLElement {
 
 				if (this.options["force-square"] === "yes") {
 					images[i].removeAttribute("height");
-					images[i].style.height = `${document.querySelector("instagram-widget").shadowRoot.querySelector(".instagram-widget-photos img").clientWidth}px`;
+					images[i].style.height = `${this.shadowRoot.querySelector(".instagram-widget-photos img").clientWidth}px`;
 				}
 			}
 		} else {
-			let images = document.querySelector("instagram-widget").shadowRoot.querySelectorAll(".instagram-widget-photos img");
+			let images = this.shadowRoot.querySelectorAll(".instagram-widget-photos img");
 			for (let i=0; i < images.length; i++) {
 				images[i].style.borderRadius = `${this.options["border-corners"]}%`;
 				images[i].style.margin = this.options["border-spacing"];
@@ -85,8 +85,22 @@ class InstagramWidget extends HTMLElement {
 				if (this.options["force-square"] === "yes") {
 					images[i].removeAttribute("height");
 					images[i].style.maxHeight = "none";
-					images[i].style.height = `${document.querySelector("instagram-widget").shadowRoot.querySelector(".instagram-widget-photos img").clientWidth}px`;
+					images[i].style.height = `${this.shadowRoot.querySelector(".instagram-widget-photos img").clientWidth}px`;
 				}
+			}
+		}
+	}
+
+	/**
+	 * Fix responsive
+	 * =====================
+	 *
+	 */
+	resize() {
+		let images = this.shadowRoot.querySelectorAll(".instagram-widget-photos img");
+		for (let i=0; i < images.length; i++) {
+			if (this.options["force-square"] === "yes") {
+				images[i].style.height = `${this.shadowRoot.querySelector(".instagram-widget-photos img").clientWidth}px`;
 			}
 		}
 	}
@@ -97,25 +111,18 @@ class InstagramWidget extends HTMLElement {
 	 *
 	 */
 	api_fetch() {
-		let self = this;
-
 		let url = `https://www.instagram.com/${this.options["username"].replace("@", "")}/?__a=1`;
 		fetch(url, {"cache": this.options["cache"] === null || this.options["cache"] === "enabled" ? "force-cache" : "default"}).then(function(response) {
 			if (response.status === 200) {
 				return response.json();
 			}
 		}).then(function(response) {
-			self.json = response;
-			self.build_html();
-			window.onresize = () => {
-				let images = document.querySelector("instagram-widget").shadowRoot.querySelectorAll(".instagram-widget-photos img");
-				for (let i=0; i < images.length; i++) {
-					if (self.options["force-square"] === "yes") {
-						images[i].style.height = `${document.querySelector("instagram-widget").shadowRoot.querySelector(".instagram-widget-photos img").clientWidth}px`;
-					}
-				}
-			};
-		});
+			this.json = response;
+			this.build_html();
+			window.addEventListener("resize", function(event) {
+				this.resize(event);
+			}.bind(this), false);
+		}.bind(this), false);
 	}
 
 	static get observedAttributes() {

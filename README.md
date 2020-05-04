@@ -1,6 +1,6 @@
 # 🌉 WebComponent: Instagram Widget
 
-[![](https://img.shields.io/badge/version-v2.4.0-lightgrey.svg)](https://github.com/ptkdev-components/webcomponent-instagram-widget/releases) [![](https://img.shields.io/npm/v/@ptkdev/webcomponent-instagram-widget.svg)](https://www.npmjs.com/package/@ptkdev/webcomponent-instagram-widget) [![](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://github.com/ptkdev-components/webcomponent-instagram-widget/blob/master/LICENSE.md) [![](https://img.shields.io/badge/ES-9-F7DF1E.svg)](https://wikipedia.org/wiki/ECMAScript) [![](https://snyk.io/test/github/ptkdev-components/webcomponent-instagram-widget/badge.svg)](https://snyk.io/test/github/ptkdev-components/webcomponent-instagram-widget) [![](https://discordapp.com/api/guilds/383373985666301975/embed.png)](http://discord.ptkdev.io)
+[![](https://img.shields.io/badge/version-v2.5.0-lightgrey.svg)](https://github.com/ptkdev-components/webcomponent-instagram-widget/releases) [![](https://img.shields.io/npm/v/@ptkdev/webcomponent-instagram-widget.svg)](https://www.npmjs.com/package/@ptkdev/webcomponent-instagram-widget) [![](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://github.com/ptkdev-components/webcomponent-instagram-widget/blob/master/LICENSE.md) [![](https://img.shields.io/badge/ES-9-F7DF1E.svg)](https://wikipedia.org/wiki/ECMAScript) [![](https://snyk.io/test/github/ptkdev-components/webcomponent-instagram-widget/badge.svg)](https://snyk.io/test/github/ptkdev-components/webcomponent-instagram-widget) [![](https://discordapp.com/api/guilds/383373985666301975/embed.png)](http://discord.ptkdev.io)
 
 > Simple Instagram Widget: Photos Box of your Instagram Profile for your blog or website with this WebComponent.
 
@@ -47,7 +47,7 @@ See [Demo here](https://codepen.io/ptkdev/pen/WNQOYqy). Photos from @ptkdev acco
 ## 🚀 Installation (Web)
 1. Add html code to your page (and replace `@ptkdev` with your instagram username):
 ```html
-<instagram-widget username="@ptkdev" grid="3x3" />
+<instagram-widget username="@ptkdev" grid="3x3"></instagram-widget>
 ```
 2. Require javascript in yourpage (before `</body>`):
 ```html
@@ -62,7 +62,7 @@ See folder `examples`, run with `npm run example`. Below is available a descript
 1. Install npm module: `npm install @ptkdev/webcomponent-instagram-widget --save`
 2. Add html code to your page (and replace `@ptkdev` with your instagram username):
 ```html
-<instagram-widget username="@ptkdev" grid="3x3" />
+<instagram-widget username="@ptkdev" grid="3x3"></instagram-widget>
 ```
 3. Require javascript in your app:
 ```javascript
@@ -79,7 +79,7 @@ See folder `examples`, run with `npm run example`. Below is available a descript
 1. Download [wordpress-plugin](https://github.com/ptkdev-components/webcomponent-instagram-widget/raw/nightly/dist/wordpress/instagram-widget-wordpress-plugin.zip) and install it.
 1. Add code to your html widget, example: `Appearance` --> `Widget` --> insert `HTML Widget` and paste html code (and replace `@ptkdev` with your instagram username):
 ```html
-<instagram-widget username="@ptkdev" grid="3x3" />
+<instagram-widget username="@ptkdev" grid="3x3"></instagram-widget>
 ```
 
 You can insert this html code in posts, widget, html box or theme. Where you want see instagram photos box.
@@ -92,7 +92,7 @@ import '@ptkdev/webcomponent-instagram-widget';
 ```
 3. Add html code to your `App.js` template (and replace `@ptkdev` with your instagram username):
 ```html
-<instagram-widget username="@ptkdev" grid="3x3" />
+<instagram-widget username="@ptkdev" grid="3x3"></instagram-widget>
 ```
 
 Go to `examples/reactjs` and run `npm run start` in folder for more info. Below is available a description of `options` values and all logger methods.
@@ -105,7 +105,7 @@ import '@ptkdev/webcomponent-instagram-widget';
 ```
 3. Add html code to your html component (and replace `@ptkdev` with your instagram username):
 ```html
-<instagram-widget username="@ptkdev" grid="3x3" />
+<instagram-widget username="@ptkdev" grid="3x3"></instagram-widget>
 ```
 
 Demo: https://webcomponents-60bc6.firebaseapp.com/instagram-widget
@@ -128,7 +128,7 @@ Go to `examples/angular` and run `yarn install` then `yarn start` in folder for 
 
 #### HTML Code with attributes:
 ```html
-<instagram-widget username="@ptkdev" grid="3x3" force-square="yes" items-limit="9" image-width="100%" image-height="100%" border-corners="5" border-spacing="2px" />
+<instagram-widget username="@ptkdev" grid="3x3" force-square="yes" items-limit="9" image-width="100%" image-height="100%" border-corners="5" border-spacing="2px"></instagram-widget>
 ```
 
 ## 🔨 Developer Mode
