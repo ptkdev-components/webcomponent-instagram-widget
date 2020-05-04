@@ -162,6 +162,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tr>
     <td align="center"><a href="https://ptk.dev"><img src="https://avatars1.githubusercontent.com/u/442844?v=4" width="100px;" alt=""/><br /><sub><b>Patryk Rzucidło</b></sub></a><br /><a href="https://github.com/ptkdev/ptkdev-components/webcomponent-instagram-widget/commits?author=ptkdev" title="Code">💻</a> <a href="#translation-ptkdev" title="Translation">🌍</a> <a href="https://github.com/ptkdev/ptkdev-components/webcomponent-instagram-widget/commits?author=ptkdev" title="Documentation">📖</a> <a href="https://github.com/ptkdev/ptkdev-components/webcomponent-instagram-widget/issues?q=author%3Aptkdev" title="Bug reports">🐛</a></td>
     <td align="center"><img src="https://avatars1.githubusercontent.com/u/26500344?v=4" width="100px;" alt=""/><br /><sub><b>Emanuele Fricano</b></sub><br /><a href="https://github.com/ptkdev/ptkdev-components/webcomponent-instagram-widget/commits?author=emanuelefricano93" title="Code">💻</a> <a href="https://github.com/ptkdev/ptkdev-components/webcomponent-instagram-widget/issues?q=author%3Aemanuelefricano93" title="Bug reports">🐛</a></td>
+    <td align="center"><img src="https://avatars1.githubusercontent.com/u/1906677?v=4" width="100px;" alt=""/><br /><sub><b>Dominik Lubański</b></sub><br /><a href="https://github.com/ptkdev/ptkdev-components/webcomponent-instagram-widget/issues?q=author%3Asmalluban" title="Bug reports">🐛</a></td>
   </tr>
 </table>
 
