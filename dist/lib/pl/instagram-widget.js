@@ -1,4 +1,4 @@
-// WebComponent: InstagramWidget 2.5.0 - Collection of WebComponents by Patryk Rzucidlo [@PTKDev] <support@ptkdev.io>
+// WebComponent: InstagramWidget 2.6.0-nightly.20200506 - Collection of WebComponents by Patryk Rzucidlo [@PTKDev] <support@ptkdev.io>
 // https://github.com/ptkdev-components/webcomponent-instagram-widget
 (function() { /**
  * InstagramWidget WebComponent
@@ -15,7 +15,7 @@ class InstagramWidget extends HTMLElement {
 		super();
 
 		const template = document.createElement("template");
-		template.innerHTML = `<style id="instagram-widget-style">#instagram-widget *{margin:0;padding:0;line-height:0}#instagram-widget .instagram-widget-container{text-align:center;justify-content:center;font-weight:500}#instagram-widget .instagram-widget-photos li img{border-radius:5%;background-color:#f8f8ff;object-fit:cover;object-position:50% 50%;max-width:300px;max-height:300px;min-width:80px;min-height:80px;margin:2px}#instagram-widget .instagram-content ul{list-style-type:none;padding-inline-start:0;width:100%}#instagram-widget .instagram-widget-photos li{list-style-type:none;display:inline}</style><div id="instagram-widget" version="2.5.0">
+		template.innerHTML = `<style id="instagram-widget-style">#instagram-widget *{margin:0;padding:0;line-height:0}#instagram-widget .instagram-widget-container{text-align:center;justify-content:center;font-weight:500}#instagram-widget .instagram-widget-photos li img{border-radius:5%;background-color:#f8f8ff;object-fit:cover;object-position:50% 50%;max-width:300px;max-height:300px;min-width:80px;min-height:80px;margin:2px}#instagram-widget .instagram-content ul{list-style-type:none;padding-inline-start:0;width:100%}#instagram-widget .instagram-widget-photos li{list-style-type:none;display:inline}</style><div id="instagram-widget" version="2.6.0-nightly.20200506">
 	<div class="instagram-widget-container">
 		<div class="instagram-widget-content">
 			<ul class="instagram-widget-photos"></ul>

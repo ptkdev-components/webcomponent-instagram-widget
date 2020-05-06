@@ -3,7 +3,7 @@
 Plugin Name: Instagram Widget - WebComponent
 Plugin URI:  https://github.com/ptkdev-components/webcomponent-instagram-widget
 Description: Photos Box of your Instagram Profile for your blog. Show latest 9 pics from you instagram profile. (Unofficial Instagram Widget)
-Version:     2.5.0
+Version:     2.6.0-nightly.20200506
 Author:      Patryk Rzucidło (@PTKDev)
 Author URI:  https://ptk.dev
 License:     MIT

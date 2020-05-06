@@ -130,7 +130,7 @@ gulp.task("build-version-latest-lib-minify", function() {
 
 gulp.task("build-version-wordpress-plugin", function() {
 	let files = [
-		"./dist/dev/wordpress-plugin.njk"
+		"./wordpress/**/*"
 	];
 
 	const translate = require(`./translations/${language}.js`);
@@ -140,9 +140,9 @@ gulp.task("build-version-wordpress-plugin", function() {
 		.pipe(gulp_data({package: pkg, translate: translate}))
 		.pipe(gulp_nunjucks_render({
 			envOptions: {autoescape: false},
-			path: [`./dist/dev/`]
+			path: [`./wordpress/`],
+			ext: ".php"
 		}))
-		.pipe(gulp_rename("instagram-widget.php"))
 		.pipe(gulp.dest(`./dist/wordpress/`));
 });
 
