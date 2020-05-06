@@ -1,7 +1,7 @@
 /**
  * InstagramWidget WebComponent
  * =====================
- * Simple Instagram Widget: Photos Box of your Instagram Profile for your blog or website with this WebComponent.
+ * Last 9 Photos: Instagram Widget of your Instagram Profile for your blog. Show latest 9 pics from your instagram account. (Unofficial Instagram Widget)
  *
  * @contributors: Patryk Rzucidło [@ptkdev] <support@ptkdev.io> (https://ptk.dev)
  *

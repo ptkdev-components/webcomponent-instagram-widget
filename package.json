@@ -1,6 +1,6 @@
 {
 	"name": "@ptkdev/webcomponent-instagram-widget",
-	"description": "Simple Instagram Widget: Photos Box of your Instagram Profile for your blog or website with this WebComponent.",
+	"description": "Last 9 Photos: Instagram Widget of your Instagram Profile for your blog. Show latest 9 pics from your instagram account. (Unofficial Instagram Widget)",
 	"version": "2.6.0-nightly.20200506",
 	"main": "dist/lib/en/instagram-widget.min.js",
 	"author": "Patryk Rzucidło [@ptkdev] <support@ptkdev.io> (https://ptk.dev)",

@@ -16,5 +16,6 @@
  *
  */
 module.exports = {
-
+	"title": "Instagram Widget",
+	"title_wordpress": "Last 9 Photos"
 };

@@ -141,7 +141,7 @@ gulp.task("build-version-wordpress-plugin", function() {
 		.pipe(gulp_nunjucks_render({
 			envOptions: {autoescape: false},
 			path: [`./wordpress/`],
-			ext: ".php"
+			inheritExtension: true,
 		}))
 		.pipe(gulp.dest(`./dist/wordpress/`));
 });

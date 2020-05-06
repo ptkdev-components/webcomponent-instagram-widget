@@ -25,7 +25,7 @@
 			}
 		},
 		"snakecasejs/filter": ["AssignmentExpression", "ClassDeclaration", "NewExpression", "CallExpression"],
-		"snakecasejs/whitelist": ["envOptions", "attributeChangedCallback", "connectedCallback", "customElements", "createServer", "existsSync", "outputFileSync", "sendFile", "attachShadow", "shadowRoot", "cloneNode", "reloadDelay", "observedAttributes", "ProfilePage", "terserOptions", "maxWidth", "maxHeight", "borderRadius", "disconnectedCallback"]
+		"snakecasejs/whitelist": ["envOptions", "attributeChangedCallback", "connectedCallback", "customElements", "createServer", "existsSync", "outputFileSync", "sendFile", "attachShadow", "shadowRoot", "cloneNode", "reloadDelay", "observedAttributes", "ProfilePage", "terserOptions", "maxWidth", "maxHeight", "borderRadius", "disconnectedCallback", "inheritExtension"]
 	},
 	"rules": {
 		"no-multi-spaces": ["error", { "ignoreEOLComments": true, "exceptions": { "VariableDeclarator": true } }],
