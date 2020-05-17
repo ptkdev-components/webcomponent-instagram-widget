@@ -15,6 +15,7 @@ databases/
 tests/
 docs/
 logs/
+wordpress/
 examples/*.log
 examples/*.json
 docker/
@@ -30,3 +31,4 @@ gulpfile.js
 .pm2-process.json
 .all-contributorsrc
 .eslintcache
+.eslintignore
