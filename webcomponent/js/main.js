@@ -77,37 +77,8 @@ class InstagramWidget extends HTMLElement {
 		switch (this.options["mouse-hover"]) {
 			case "type1":
 				this.shadowRoot.querySelector("#instagram-widget-style").innerHTML = `${this.shadowRoot.querySelector("#instagram-widget-style").innerHTML}
-				#instagram-widget .instagram-widget-li{overflow: hidden;}
-				#instagram-widget .instagram-widget-photo{transition: transform .5s ease;}
-				#instagram-widget .instagram-widget-li .instagram-widget-photo:hover{transform: scale(1.5);}`;
-				break;
-
-			case "type2":
-				this.shadowRoot.querySelector("#instagram-widget-style").innerHTML = `${this.shadowRoot.querySelector("#instagram-widget-style").innerHTML}
-				#instagram-widget .instagram-widget-li{overflow: hidden;}
-				#instagram-widget .instagram-widget-photo{transition: transform .5s ease;}
-				#instagram-widget .instagram-widget-li:hover .instagram-widget-photo{transform: scale(2) rotate(25deg);}`;
-				break;
-
-			case "type3":
-				this.shadowRoot.querySelector("#instagram-widget-style").innerHTML = `${this.shadowRoot.querySelector("#instagram-widget-style").innerHTML}
-				#instagram-widget .instagram-widget-li{overflow: hidden;}
-				#instagram-widget .instagram-widget-photo{transition: transform 2s, filter 1.5s ease-in-out;transform-origin: center center;filter: brightness(50%);}
-				#instagram-widget .instagram-widget-li:hover .instagram-widget-photo{filter: brightness(100%);transform: scale(1.3);}`;
-				break;
-
-			case "type4":
-				this.shadowRoot.querySelector("#instagram-widget-style").innerHTML = `${this.shadowRoot.querySelector("#instagram-widget-style").innerHTML}
-				#instagram-widget .instagram-widget-li{overflow: hidden;}
-				#instagram-widget .instagram-widget-photo{transition: transform 1s, filter 2s ease-in-out;filter: blur(2px);transform: scale(1.2);}
-				#instagram-widget .instagram-widget-li:hover .instagram-widget-photo{filter: blur(0);transform: scale(1);}`;
-				break;
-
-			case "type5":
-				this.shadowRoot.querySelector("#instagram-widget-style").innerHTML = `${this.shadowRoot.querySelector("#instagram-widget-style").innerHTML}
-				#instagram-widget .instagram-widget-li{overflow: hidden;}
-				#instagram-widget .instagram-widget-photo{transition: transform .5s ease-in-out;transform: scale(1.4);transform-origin: 0 0;}
-				#instagram-widget .instagram-widget-li:hover .instagram-widget-photo{transform: scale(1.25) translateY(-30%);}`;
+				#instagram-widget .instagram-widget-photo{transition: opacity 0.3s ease-in-out;}
+				#instagram-widget .instagram-widget-photo:hover{opacity: 0.70;}`;
 				break;
 
 			default:
@@ -118,7 +89,6 @@ class InstagramWidget extends HTMLElement {
 			let grid = this.options["grid"].split("x");
 			let width = 100 / parseInt(grid[0]);
 			let images = this.shadowRoot.querySelectorAll(".instagram-widget-photos img");
-			let li = this.shadowRoot.querySelectorAll(".instagram-widget-li");
 			for (let i=0; i < images.length; i++) {
 				images[i].removeAttribute("width");
 				images[i].style.width = `calc(${(width)}% - (${this.options["border-spacing"]} * (${parseInt(grid[0])} * 2)))`;
@@ -148,11 +118,8 @@ class InstagramWidget extends HTMLElement {
 					images[i].removeAttribute("height");
 					images[i].style.height = `${this.shadowRoot.querySelector(".instagram-widget-photos img").clientWidth}px`;
 				}
-
-				li[i].style.maxHeight = `${this.shadowRoot.querySelector(".instagram-widget-photos img").clientHeight}px`;
 			}
 		} else {
-			let li = this.shadowRoot.querySelectorAll(".instagram-widget-li");
 			let images = this.shadowRoot.querySelectorAll(".instagram-widget-photos img");
 			for (let i=0; i < images.length; i++) {
 				images[i].style.borderRadius = `${this.options["border-corners"]}%`;
@@ -180,8 +147,6 @@ class InstagramWidget extends HTMLElement {
 					images[i].style.maxHeight = "none";
 					images[i].style.height = `${this.shadowRoot.querySelector(".instagram-widget-photos img").clientWidth}px`;
 				}
-
-				li[i].style.maxHeight = `${this.shadowRoot.querySelector(".instagram-widget-photos img").clientHeight}px`;
 			}
 		}
 	}
