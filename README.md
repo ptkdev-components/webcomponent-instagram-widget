@@ -79,7 +79,7 @@ import '@ptkdev/webcomponent-instagram-widget';
 See folder `examples`, run with `npm run example`. Below is available a description of `options` values and all logger methods.
 
 ## 📖 Installation (Wordpress)
-1. Download [wordpress-plugin](https://github.com/ptkdev-components/webcomponent-instagram-widget/raw/nightly/dist/wordpress/instagram-widget-wordpress-plugin.zip) and install it.
+1. Download [wordpress-plugin](https://github.com/ptkdev-components/webcomponent-instagram-widget/raw/master/dist/wordpress/instagram-widget-wordpress-plugin.zip) and install it.
 1. Add code to your html widget, example: `Appearance` --> `Widget` --> insert `HTML Widget` and paste html code (and replace `@ptkdev` with your instagram username):
 ```html
 <instagram-widget username="@ptkdev" grid="3x3"></instagram-widget>
