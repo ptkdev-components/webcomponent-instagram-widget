@@ -1,4 +1,4 @@
-// WebComponent: InstagramWidget 2.6.0-nightly.20200517 - Collection of WebComponents by Patryk Rzucidlo [@PTKDev] <support@ptkdev.io>
+// WebComponent: InstagramWidget 2.6.0 - Collection of WebComponents by Patryk Rzucidlo [@PTKDev] <support@ptkdev.io>
 // https://github.com/ptkdev-components/webcomponent-instagram-widget
 (function() { /**
  * InstagramWidget WebComponent
@@ -15,7 +15,7 @@ class InstagramWidget extends HTMLElement {
 		super();
 
 		const template = document.createElement("template");
-		template.innerHTML = `<style id="instagram-widget-style" part="style">#instagram-widget *{margin:0;padding:0;line-height:0}#instagram-widget .instagram-widget-container{text-align:center;justify-content:center;font-weight:500}#instagram-widget .instagram-widget-photos li img{border-radius:5%;background-color:#f8f8ff;object-fit:cover;object-position:50% 50%;max-width:300px;max-height:300px;min-width:80px;min-height:80px;margin:2px}#instagram-widget .instagram-content ul{list-style-type:none;padding-inline-start:0;width:100%}#instagram-widget .instagram-widget-photos li{list-style-type:none;display:inline}</style><div id="instagram-widget" part="main" version="2.6.0-nightly.20200517">
+		template.innerHTML = `<style id="instagram-widget-style" part="style">#instagram-widget *{margin:0;padding:0;line-height:0}#instagram-widget .instagram-widget-container{text-align:center;justify-content:center;font-weight:500}#instagram-widget .instagram-widget-photos li img{border-radius:5%;background-color:#f8f8ff;object-fit:cover;object-position:50% 50%;max-width:300px;max-height:300px;min-width:80px;min-height:80px;margin:2px}#instagram-widget .instagram-content ul{list-style-type:none;padding-inline-start:0;width:100%}#instagram-widget .instagram-widget-photos li{list-style-type:none;display:inline}</style><div id="instagram-widget" part="main" version="2.6.0">
 	<div class="instagram-widget-container" part="container">
 		<div class="instagram-widget-content" part="content">
 			<ul class="instagram-widget-photos" part="photos"></ul>
@@ -35,7 +35,10 @@ class InstagramWidget extends HTMLElement {
 			"cache": "enabled",
 			"border-spacing": "2px",
 			"border-corners": "5",
-			"force-square": "yes"
+			"force-square": "yes",
+			"shadows": "disabled",
+			"mouse-hover": "disabled",
+			"show-title": "enabled"
 		};
 
 		this.options = Object.create(this.options_default);
@@ -76,13 +79,20 @@ class InstagramWidget extends HTMLElement {
 
 		let html = "";
 		for (let i = 0; i < photos.length && i < this.options["items-limit"]; i++) {
-			html += `<li class="instagram-widget-li" part="li li-${i}">
-						<a href="${photos[i].url}" rel="nofollow external noopener noreferrer" target="_blank" title="${photos[i].caption.substring(0, 100).replace(/"/g, "")}" class="instagram-widget-link" part="link link-${i}">
-							<img width="${this.options["image-width"]}" height="${this.options["image-height"]}" src="${photos[i].display_url}" alt="${photos[i].caption.substring(0, 100).replace(/"/g, "")}" loading="lazy" class="instagram-widget-photo" part="photo photo-${i}" />
-						</a>
-					</li>`;
+			html += `<li class="instagram-widget-li" part="li li-${i}"><a href="${photos[i].url}" rel="nofollow external noopener noreferrer" target="_blank" title="${this.options["show-title"] === "enabled" ? photos[i].caption.substring(0, 100).replace(/"/g, "") : ""}" class="instagram-widget-link" part="link link-${i}"><img width="${this.options["image-width"]}" height="${this.options["image-height"]}" src="${photos[i].display_url}" alt="${this.options["show-title"] === "enabled" ? photos[i].caption.substring(0, 100).replace(/"/g, "") : ""}" loading="lazy" class="instagram-widget-photo" part="photo photo-${i}" /></a></li>`;
 		}
 		this.shadowRoot.querySelector(".instagram-widget-photos").innerHTML = html;
+
+		switch (this.options["mouse-hover"]) {
+			case "type1":
+				this.shadowRoot.querySelector("#instagram-widget-style").innerHTML = `${this.shadowRoot.querySelector("#instagram-widget-style").innerHTML}
+				#instagram-widget .instagram-widget-photo{transition: opacity 0.3s ease-in-out;}
+				#instagram-widget .instagram-widget-photo:hover{opacity: 0.70;}`;
+				break;
+
+			default:
+				break;
+		}
 
 		if (this.options["grid"] !== "" && this.options["grid"] !== null && this.options["grid"] !== "responsive") {
 			let grid = this.options["grid"].split("x");
@@ -96,6 +106,23 @@ class InstagramWidget extends HTMLElement {
 				images[i].style.borderRadius = `${this.options["border-corners"]}%`;
 				images[i].style.margin = this.options["border-spacing"];
 
+				switch (this.options["shadows"]) {
+					case "type1":
+						images[i].style.boxShadow = "0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)";
+						break;
+
+					case "type2":
+						images[i].style.boxShadow = "0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)";
+						break;
+
+					case "type3":
+						images[i].style.boxShadow = "0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)";
+						break;
+
+					default:
+						break;
+				}
+
 				if (this.options["force-square"] === "yes") {
 					images[i].removeAttribute("height");
 					images[i].style.height = `${this.shadowRoot.querySelector(".instagram-widget-photos img").clientWidth}px`;
@@ -106,6 +133,23 @@ class InstagramWidget extends HTMLElement {
 			for (let i=0; i < images.length; i++) {
 				images[i].style.borderRadius = `${this.options["border-corners"]}%`;
 				images[i].style.margin = this.options["border-spacing"];
+
+				switch (this.options["shadows"]) {
+					case "type1":
+						images[i].style.boxShadow = "0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)";
+						break;
+
+					case "type2":
+						images[i].style.boxShadow = "0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)";
+						break;
+
+					case "type3":
+						images[i].style.boxShadow = "0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)";
+						break;
+
+					default:
+						break;
+				}
 
 				if (this.options["force-square"] === "yes") {
 					images[i].removeAttribute("height");
@@ -148,7 +192,7 @@ class InstagramWidget extends HTMLElement {
 	}
 
 	static get observedAttributes() {
-		return ["username", "items-limit", "grid", "image-width", "image-height", "border-spacing", "border-corners", "force-square", "cache"];
+		return ["username", "items-limit", "grid", "image-width", "image-height", "border-spacing", "border-corners", "force-square", "mouse-hover", "shadows", "show-title", "cache"];
 	}
 
 	attributeChangedCallback(name_attribute, old_vale, new_value) {

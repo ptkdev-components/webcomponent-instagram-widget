@@ -123,6 +123,6 @@ plugins/*/
 config.js
 config/*.js
 configs/*.js
-/dist/dev
-/dist/wordpress/
+/dist/dev/
+/dist/wordpress/*
 !/dist/wordpress/*.zip

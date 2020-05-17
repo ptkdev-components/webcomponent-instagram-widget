@@ -129,6 +129,7 @@ Go to `examples/angular` and run `yarn install` then `yarn start` in folder for 
 | force-square | Force square aspect ratio if you post photos with different size on your instagram | `yes` / `no` | `yes` | v2.4.0 |
 | shadows | Show shadows css | `type1`, `type2`, `type3`, `disabled` | `disabled` | v2.6.0 |
 | mouse-hover | Show animation with mouse hover | `type1`, `disabled` | `disabled` | v2.6.0 |
+| show-title | Show alt/title with hover of mouse | `enabled` / `disabled` | `enabled` | v2.6.0 |
 | cache | Enable/disable cache | `enabled` / `disabled` | `enabled` | v2.1.0 |
 
 #### HTML Code with attributes:

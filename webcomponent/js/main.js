@@ -29,7 +29,8 @@ class InstagramWidget extends HTMLElement {
 			"border-corners": "5",
 			"force-square": "yes",
 			"shadows": "disabled",
-			"mouse-hover": "disabled"
+			"mouse-hover": "disabled",
+			"show-title": "enabled"
 		};
 
 		this.options = Object.create(this.options_default);
@@ -70,7 +71,7 @@ class InstagramWidget extends HTMLElement {
 
 		let html = "";
 		for (let i = 0; i < photos.length && i < this.options["items-limit"]; i++) {
-			html += `<li class="instagram-widget-li" part="li li-${i}"><a href="${photos[i].url}" rel="nofollow external noopener noreferrer" target="_blank" title="${photos[i].caption.substring(0, 100).replace(/"/g, "")}" class="instagram-widget-link" part="link link-${i}"><img width="${this.options["image-width"]}" height="${this.options["image-height"]}" src="${photos[i].display_url}" alt="${photos[i].caption.substring(0, 100).replace(/"/g, "")}" loading="lazy" class="instagram-widget-photo" part="photo photo-${i}" /></a></li>`;
+			html += `<li class="instagram-widget-li" part="li li-${i}"><a href="${photos[i].url}" rel="nofollow external noopener noreferrer" target="_blank" title="${this.options["show-title"] === "enabled" ? photos[i].caption.substring(0, 100).replace(/"/g, "") : ""}" class="instagram-widget-link" part="link link-${i}"><img width="${this.options["image-width"]}" height="${this.options["image-height"]}" src="${photos[i].display_url}" alt="${this.options["show-title"] === "enabled" ? photos[i].caption.substring(0, 100).replace(/"/g, "") : ""}" loading="lazy" class="instagram-widget-photo" part="photo photo-${i}" /></a></li>`;
 		}
 		this.shadowRoot.querySelector(".instagram-widget-photos").innerHTML = html;
 
@@ -183,7 +184,7 @@ class InstagramWidget extends HTMLElement {
 	}
 
 	static get observedAttributes() {
-		return ["username", "items-limit", "grid", "image-width", "image-height", "border-spacing", "border-corners", "force-square", "mouse-hover", "shadows", "cache"];
+		return ["username", "items-limit", "grid", "image-width", "image-height", "border-spacing", "border-corners", "force-square", "mouse-hover", "shadows", "show-title", "cache"];
 	}
 
 	attributeChangedCallback(name_attribute, old_vale, new_value) {
