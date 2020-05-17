@@ -1,4 +1,4 @@
-// WebComponent: InstagramWidget 2.6.0-nightly.20200506 - Collection of WebComponents by Patryk Rzucidlo [@PTKDev] <support@ptkdev.io>
+// WebComponent: InstagramWidget 2.6.0-nightly.20200517 - Collection of WebComponents by Patryk Rzucidlo [@PTKDev] <support@ptkdev.io>
 // https://github.com/ptkdev-components/webcomponent-instagram-widget
 (function() { /**
  * InstagramWidget WebComponent
@@ -15,10 +15,10 @@ class InstagramWidget extends HTMLElement {
 		super();
 
 		const template = document.createElement("template");
-		template.innerHTML = `<style id="instagram-widget-style">#instagram-widget *{margin:0;padding:0;line-height:0}#instagram-widget .instagram-widget-container{text-align:center;justify-content:center;font-weight:500}#instagram-widget .instagram-widget-photos li img{border-radius:5%;background-color:#f8f8ff;object-fit:cover;object-position:50% 50%;max-width:300px;max-height:300px;min-width:80px;min-height:80px;margin:2px}#instagram-widget .instagram-content ul{list-style-type:none;padding-inline-start:0;width:100%}#instagram-widget .instagram-widget-photos li{list-style-type:none;display:inline}</style><div id="instagram-widget" version="2.6.0-nightly.20200506">
-	<div class="instagram-widget-container">
-		<div class="instagram-widget-content">
-			<ul class="instagram-widget-photos"></ul>
+		template.innerHTML = `<style id="instagram-widget-style" part="style">#instagram-widget *{margin:0;padding:0;line-height:0}#instagram-widget .instagram-widget-container{text-align:center;justify-content:center;font-weight:500}#instagram-widget .instagram-widget-photos li img{border-radius:5%;background-color:#f8f8ff;object-fit:cover;object-position:50% 50%;max-width:300px;max-height:300px;min-width:80px;min-height:80px;margin:2px}#instagram-widget .instagram-content ul{list-style-type:none;padding-inline-start:0;width:100%}#instagram-widget .instagram-widget-photos li{list-style-type:none;display:inline}</style><div id="instagram-widget" part="main" version="2.6.0-nightly.20200517">
+	<div class="instagram-widget-container" part="container">
+		<div class="instagram-widget-content" part="content">
+			<ul class="instagram-widget-photos" part="photos"></ul>
 		</div>
 	</div>
 </div>`;
@@ -40,7 +40,7 @@ class InstagramWidget extends HTMLElement {
 
 		this.options = Object.create(this.options_default);
 
-		this.resize_event = function(event) {
+		this.resizeAction = function(event) {
 			this.resize(event);
 		}.bind(this);
 	}
@@ -51,7 +51,7 @@ class InstagramWidget extends HTMLElement {
 	 *
 	 */
 	connectedCallback() {
-		window.addEventListener("resize", this.resize_event);
+		window.addEventListener("resize", this.resizeAction);
 	}
 
 	/**
@@ -59,7 +59,7 @@ class InstagramWidget extends HTMLElement {
 	 * =====================
 	 *
 	 */
-	build_html() {
+	buildHTML() {
 		let data = this.json.graphql.user.edge_owner_to_timeline_media.edges;
 
 		let photos = [];
@@ -76,7 +76,11 @@ class InstagramWidget extends HTMLElement {
 
 		let html = "";
 		for (let i = 0; i < photos.length && i < this.options["items-limit"]; i++) {
-			html += `<li><a href="${photos[i].url}" rel="nofollow external noopener noreferrer" target="_blank" title="${photos[i].caption.substring(0, 100).replace(/"/g, "")}"><img width="${this.options["image-width"]}" height="${this.options["image-height"]}" src="${photos[i].display_url}" alt="${photos[i].caption.substring(0, 100).replace(/"/g, "")}" loading="lazy" /></a></li>`;
+			html += `<li class="instagram-widget-li" part="li li-${i}">
+						<a href="${photos[i].url}" rel="nofollow external noopener noreferrer" target="_blank" title="${photos[i].caption.substring(0, 100).replace(/"/g, "")}" class="instagram-widget-link" part="link link-${i}">
+							<img width="${this.options["image-width"]}" height="${this.options["image-height"]}" src="${photos[i].display_url}" alt="${photos[i].caption.substring(0, 100).replace(/"/g, "")}" loading="lazy" class="instagram-widget-photo" part="photo photo-${i}" />
+						</a>
+					</li>`;
 		}
 		this.shadowRoot.querySelector(".instagram-widget-photos").innerHTML = html;
 
@@ -131,7 +135,7 @@ class InstagramWidget extends HTMLElement {
 	 * =====================
 	 *
 	 */
-	api_fetch() {
+	apiFetch() {
 		let url = `https://www.instagram.com/${this.options["username"].replace("@", "")}/?__a=1`;
 		fetch(url, {"cache": this.options["cache"] === null || this.options["cache"] === "enabled" ? "force-cache" : "default"}).then(function(response) {
 			if (response.status === 200) {
@@ -139,7 +143,7 @@ class InstagramWidget extends HTMLElement {
 			}
 		}).then(function(response) {
 			this.json = response;
-			this.build_html();
+			this.buildHTML();
 		}.bind(this));
 	}
 
@@ -157,11 +161,11 @@ class InstagramWidget extends HTMLElement {
 
 			switch (name_attribute) {
 				case "username":
-				  this.api_fetch();
+				  this.apiFetch();
 				  break;
 				default:
 				  if (this.json !== null) {
-						this.build_html();
+						this.buildHTML();
 				  }
 			  }
 		}
@@ -173,7 +177,7 @@ class InstagramWidget extends HTMLElement {
 	 *
 	 */
 	disconnectedCallback() {
-		window.removeEventListener("resize", this.resize_event);
+		window.removeEventListener("resize", this.resizeAction);
 	}
 }
 

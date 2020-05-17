@@ -1,6 +1,6 @@
 # 🌉 WebComponent: Instagram Widget
 
-[![](https://img.shields.io/badge/version-v2.6.0--nightly.20200506-lightgrey.svg)](https://github.com/ptkdev-components/webcomponent-instagram-widget/releases) [![](https://img.shields.io/npm/v/@ptkdev/webcomponent-instagram-widget.svg)](https://www.npmjs.com/package/@ptkdev/webcomponent-instagram-widget) [![](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://github.com/ptkdev-components/webcomponent-instagram-widget/blob/master/LICENSE.md) [![](https://img.shields.io/badge/ES-9-F7DF1E.svg)](https://wikipedia.org/wiki/ECMAScript) [![](https://snyk.io/test/github/ptkdev-components/webcomponent-instagram-widget/badge.svg)](https://snyk.io/test/github/ptkdev-components/webcomponent-instagram-widget) [![](https://discordapp.com/api/guilds/383373985666301975/embed.png)](http://discord.ptkdev.io)
+[![](https://img.shields.io/badge/version-v2.6.0-lightgrey.svg)](https://github.com/ptkdev-components/webcomponent-instagram-widget/releases) [![](https://img.shields.io/npm/v/@ptkdev/webcomponent-instagram-widget.svg)](https://www.npmjs.com/package/@ptkdev/webcomponent-instagram-widget) [![](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://github.com/ptkdev-components/webcomponent-instagram-widget/blob/master/LICENSE.md) [![](https://img.shields.io/badge/ES-9-F7DF1E.svg)](https://wikipedia.org/wiki/ECMAScript) [![](https://snyk.io/test/github/ptkdev-components/webcomponent-instagram-widget/badge.svg)](https://snyk.io/test/github/ptkdev-components/webcomponent-instagram-widget) [![](https://discordapp.com/api/guilds/383373985666301975/embed.png)](http://discord.ptkdev.io)
 
 > Last 9 Photos: Instagram Widget of your Instagram Profile for your blog. Show latest 9 pics from your instagram account. (Unofficial Instagram Widget)
 
@@ -23,8 +23,10 @@
 - - 📖 [Wordpress](#-installation-wordpress)
 - - ⚛️ [React](#%EF%B8%8F-installation-react)
 - - 🅰️ [Angular](#🅰%EF%B8%8F-installation-angular)
-- 🧰 [Options / Attributes](#-options--attributes)
 - 📚 [Documentation](#-documentation)
+- - 🧰 [Options / Attributes](#-options--attributes)
+- - 🎨 [CSS Customization](#-css-customization)
+- 🔨 [Developer Mode](#-developer-mode)
 - 👨‍💻 [Contributing](#-contributing)
 - 🐛 [Known Bugs](https://github.com/ptkdev-components/webcomponent-instagram-widget/issues?q=is%3Aopen+is%3Aissue+label%3Abug)
 - 🍻 Community:
@@ -35,6 +37,7 @@
 * [✔️] MIT License
 * [✔️] Without jQuery depencence
 * [✔️] Configurable with attributes
+* [✔️] Customization with CSS Style
 * [✔️] Work with: Browserify / Webpack / ReactJS / Angular / Wordpress
 * [✔️] Photos Widget of your Instagram Profile for your blog or website with this WebComponent
 * [✔️] Translations: 🇬🇧 🇮🇹 🇵🇱 (Help me ❤️)
@@ -124,12 +127,27 @@ Go to `examples/angular` and run `yarn install` then `yarn start` in folder for 
 | border-spacing | Set spacing around images | length units: `5%`, `5px`, `5pt` | `2px` | v2.1.0 |
 | border-corners | Set border radius of corners: `0`: square / `15`: rounded / `100`: circle | number: from `0` to `100` | `5` | v2.1.0 |
 | force-square | Force square aspect ratio if you post photos with different size on your instagram | `yes` / `no` | `yes` | v2.4.0 |
+| shadows | Show shadows css | `type1`, `type2`, `type3`, `disabled` | `disabled` | v2.6.0 |
+| mouse-hover | Show animation with mouse hover | `type1`, `type2`, `type3`, `disabled` | `disabled` | v2.6.0 |
 | cache | Enable/disable cache | `enabled` / `disabled` | `enabled` | v2.1.0 |
 
 #### HTML Code with attributes:
 ```html
 <instagram-widget username="@ptkdev" grid="3x3" force-square="yes" items-limit="9" image-width="100%" image-height="100%" border-corners="5" border-spacing="2px"></instagram-widget>
 ```
+
+## 🎨 CSS Customization
+You can overwrite default css with selector `::part`, example:
+
+```html
+<style>
+	instagram-widget::part(photo) {
+		border: 2px solid red;
+	}
+</style>
+```
+
+Part attribute is, generally, suffix of a class. Use chrome inspector for get correct value of `part=""` attributes. See [MDN selector ::part docs](https://developer.mozilla.org/en-US/docs/Web/CSS/::part).
 
 ## 🔨 Developer Mode
 1. Download [nightly](https://github.com/ptkdev-components/webcomponent-instagram-widget/archive/nightly.zip), [beta](https://github.com/ptkdev-components/webcomponent-instagram-widget/archive/beta.zip) or [stable](https://github.com/ptkdev-components/webcomponent-instagram-widget/archive/master.zip).

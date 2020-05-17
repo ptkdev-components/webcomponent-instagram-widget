@@ -9,9 +9,7 @@ Author URI:  https://ptk.dev
 License:     MIT
 License URI: https://github.com/ptkdev-components/webcomponent-instagram-widget/blob/nightly/LICENSE.md
 */
-
-add_action('wp_enqueue_scripts', 'instagram_widget_load');
-function instagram_widget_load(){
+function last_9_photos_webcomponent_load(){
 	$lang = "";
 	switch (strtolower(substr(get_bloginfo("language"), 0, 2))) {
 		case "en":
@@ -27,7 +25,8 @@ function instagram_widget_load(){
 			$lang = "en";
 	}
 
-	wp_enqueue_script('instagram-widget', 'https://cdn.jsdelivr.net/npm/@ptkdev/webcomponent-instagram-widget@latest/dist/lib/'.$lang.'/instagram-widget.min.js', array(), false, true);
+	wp_enqueue_script("last_9_photos_webcomponent", plugins_url('last-9-photos-webcomponent', dirname(__FILE__))."/js/".$lang."/instagram-widget.min.js", array(), false, true);
 }
 
+add_action("wp_enqueue_scripts", "last_9_photos_webcomponent_load");
 ?>

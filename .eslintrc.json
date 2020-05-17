@@ -11,7 +11,6 @@
 		"ecmaVersion": 2019
 	},
 	"plugins": [
-		"snakecasejs",
 		"jsdoc",
 		"jest"
 	],
@@ -23,9 +22,7 @@
 			"tagNamePreference": {
 				"returns": "return"
 			}
-		},
-		"snakecasejs/filter": ["AssignmentExpression", "ClassDeclaration", "NewExpression", "CallExpression"],
-		"snakecasejs/whitelist": ["envOptions", "attributeChangedCallback", "connectedCallback", "customElements", "createServer", "existsSync", "outputFileSync", "sendFile", "attachShadow", "shadowRoot", "cloneNode", "reloadDelay", "observedAttributes", "ProfilePage", "terserOptions", "maxWidth", "maxHeight", "borderRadius", "disconnectedCallback", "inheritExtension"]
+		}
 	},
 	"rules": {
 		"no-multi-spaces": ["error", { "ignoreEOLComments": true, "exceptions": { "VariableDeclarator": true } }],
@@ -57,7 +54,6 @@
 	    "jest/no-identical-title": "error",
 	    "jest/prefer-to-have-length": "warn",
 	    "jest/valid-expect": "error",
-		"snakecasejs/snakecasejs": "warn",
 		"jsdoc/require-param": 1,
 		"jsdoc/require-param-description": 1,
 		"jsdoc/require-param-name": 1,
