@@ -2,7 +2,7 @@
 /*
 Plugin Name: Last 9 Photos - WebComponent
 Plugin URI:  https://github.com/ptkdev-components/webcomponent-instagram-widget
-Description: Instagram Widget of your Instagram Profile for your blog. Show latest 9 pics from your instagram account. (Unofficial Instagram Widget)
+Description: Instagram Widget of your Instagram Profile for your blog. Show latest 9 pics from your instagram account.
 Version:     {{ package.version }}
 Author:      Patryk Rzucidło (@PTKDev)
 Author URI:  https://ptk.dev

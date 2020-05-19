@@ -9,7 +9,7 @@ Stable tag: {{package.version}}
 License: MIT
 License URI: https://github.com/ptkdev-components/webcomponent-instagram-widget/blob/nightly/LICENSE.md
 
-Instagram Widget of your Instagram Profile for your blog. Show latest 9 pics from your instagram account. (Unofficial Instagram Widget)
+Instagram Widget of your Instagram Profile for your blog. Show latest 9 pics from your instagram account.
 
 == Description ==
 
