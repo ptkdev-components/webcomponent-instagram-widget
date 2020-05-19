@@ -146,12 +146,40 @@ gulp.task("build-version-wordpress-plugin", function() {
 		.pipe(gulp.dest(`./dist/wordpress/last-9-photos-webcomponent/`));
 });
 
+gulp.task("cpy-changelog-wordpress-plugin", function() {
+	let files = [
+		"./CHANGELOG.md"
+	];
+
+	const translate = require(`./translations/${language}.js`);
+	delete require.cache[require.resolve(`./translations/${language}.js`)];
+
+	return gulp.src(files)
+		.pipe(gulp_data({package: pkg, translate: translate}))
+		.pipe(gulp_nunjucks_render({
+			envOptions: {autoescape: false},
+			path: [`./wordpress/`],
+			inheritExtension: true,
+		}))
+		.pipe(gulp_rename("changelog.txt"))
+		.pipe(gulp.dest(`./dist/wordpress/last-9-photos-webcomponent/`));
+});
+
 gulp.task("cpy-js-wordpress-plugin", function() {
 	let files = [
 		"./dist/lib/**/*"
 	];
 
 	return gulp.src(files).pipe(gulp.dest(`./dist/wordpress/last-9-photos-webcomponent/js/`));
+});
+
+gulp.task("cpy-readme-wordpress-plugin", function() {
+	let files = [
+		"./dist/wordpress/last-9-photos-webcomponent/readme.txt",
+		"./CHANGELOG.md"
+	];
+
+	return gulp.src(files).pipe(gulp_concat({path: "readme.txt"})).pipe(gulp.dest(`./dist/wordpress/last-9-photos-webcomponent/`));
 });
 
 /**
@@ -194,4 +222,4 @@ gulp.task("browser-sync", function() {
 gulp.task("start", gulp.series("build-css", "build-html", "build-js", "browser-sync"));
 gulp.task("dist", gulp.series("build-css", "build-html", "build-js", "build-js-minify"));
 gulp.task("release", gulp.series("build-version-latest-lib", "build-version-latest-lib-minify"));
-gulp.task("wordpress-plugin", gulp.series("build-version-wordpress-plugin", "cpy-js-wordpress-plugin"));
+gulp.task("wordpress-plugin", gulp.series("build-version-wordpress-plugin", "cpy-js-wordpress-plugin", "cpy-changelog-wordpress-plugin", "cpy-readme-wordpress-plugin"));

@@ -1,6 +1,6 @@
 # 🌉 WebComponent: Instagram Widget
 
-[![](https://img.shields.io/badge/version-v2.6.0-lightgrey.svg)](https://github.com/ptkdev-components/webcomponent-instagram-widget/releases) [![](https://img.shields.io/npm/v/@ptkdev/webcomponent-instagram-widget.svg)](https://www.npmjs.com/package/@ptkdev/webcomponent-instagram-widget) [![](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://github.com/ptkdev-components/webcomponent-instagram-widget/blob/master/LICENSE.md) [![](https://img.shields.io/badge/ES-9-F7DF1E.svg)](https://wikipedia.org/wiki/ECMAScript) [![](https://snyk.io/test/github/ptkdev-components/webcomponent-instagram-widget/badge.svg)](https://snyk.io/test/github/ptkdev-components/webcomponent-instagram-widget) [![](https://discordapp.com/api/guilds/383373985666301975/embed.png)](http://discord.ptkdev.io)
+[![](https://img.shields.io/badge/version-v2.6.1-lightgrey.svg)](https://github.com/ptkdev-components/webcomponent-instagram-widget/releases) [![](https://img.shields.io/npm/v/@ptkdev/webcomponent-instagram-widget.svg)](https://www.npmjs.com/package/@ptkdev/webcomponent-instagram-widget) [![](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://github.com/ptkdev-components/webcomponent-instagram-widget/blob/master/LICENSE.md) [![](https://img.shields.io/badge/ES-9-F7DF1E.svg)](https://wikipedia.org/wiki/ECMAScript) [![](https://snyk.io/test/github/ptkdev-components/webcomponent-instagram-widget/badge.svg)](https://snyk.io/test/github/ptkdev-components/webcomponent-instagram-widget) [![](https://discordapp.com/api/guilds/383373985666301975/embed.png)](http://discord.ptkdev.io)
 
 Last 9 Photos: Instagram Widget of your Instagram Profile for your blog. Show latest 9 pics from your instagram account. (Unofficial Instagram Widget)
 
@@ -79,7 +79,7 @@ import '@ptkdev/webcomponent-instagram-widget';
 See folder `examples`, run with `npm run example`. Below is available a description of `options` values and all logger methods.
 
 ## 📖 Installation (Wordpress)
-1. Download [wordpress-plugin](https://github.com/ptkdev-components/webcomponent-instagram-widget/raw/master/dist/wordpress/instagram-widget-wordpress-plugin.zip) and install it.
+1. Download wordpress plugin from [official store](https://wordpress.org/plugins/last-9-photos-webcomponent/) or [mirror](https://github.com/ptkdev-components/webcomponent-instagram-widget/raw/master/dist/wordpress/instagram-widget-wordpress-plugin.zip) and install it.
 1. Add code to your html widget, example: `Appearance` --> `Widget` --> insert `HTML Widget` and paste html code (and replace `@ptkdev` with your instagram username):
 ```html
 <instagram-widget username="@ptkdev" grid="3x3"></instagram-widget>

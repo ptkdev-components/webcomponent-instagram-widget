@@ -1,12 +1,15 @@
+# v2.6.1 (May 19, 2020)
+* New: Wordpress Plugin available on [store](https://wordpress.org/plugins/last-9-photos-webcomponent/).
+
+[![](https://img.shields.io/badge/donate-paypal-005EA6.svg?logo=paypal)](https://www.paypal.me/ptkdev) [![](https://img.shields.io/badge/donate-patreon-F87668.svg?logo=patreon)](https://www.patreon.com/ptkdev) [![](https://img.shields.io/badge/donate-sponsors-ea4aaa.svg?logo=github)](https://github.com/sponsors/ptkdev/)  [![](https://img.shields.io/badge/donate-ko--fi-29abe0.svg?logo=ko-fi)](https://ko-fi.com/ptkdev)
+
+
 # v2.6.0 (May 18, 2020)
 * Feature: Overwrite CSS Style with selector `::part`
 * New attribute: mouse-hover
 * New attribute: show-title
 * New attribute: shadows
 * Fix: Wordpress Plugin
-
-[![](https://img.shields.io/badge/donate-paypal-005EA6.svg?logo=paypal)](https://www.paypal.me/ptkdev) [![](https://img.shields.io/badge/donate-patreon-F87668.svg?logo=patreon)](https://www.patreon.com/ptkdev) [![](https://img.shields.io/badge/donate-sponsors-ea4aaa.svg?logo=github)](https://github.com/sponsors/ptkdev/)  [![](https://img.shields.io/badge/donate-ko--fi-29abe0.svg?logo=ko-fi)](https://ko-fi.com/ptkdev)
-
 
 # v2.5.0 (May 04, 2020)
 * Fix: now you can use multiple webcomponents in the same html page (#3)
