@@ -73,7 +73,12 @@ class InstagramWidget extends HTMLElement {
 		for (let i = 0; i < photos.length && i < this.options["items-limit"]; i++) {
 			html += `<li class="instagram-widget-li" part="li li-${i}"><a href="${photos[i].url}" rel="nofollow external noopener noreferrer" target="_blank" title="${this.options["show-title"] === "enabled" ? photos[i].caption.substring(0, 100).replace(/"/g, "") : ""}" class="instagram-widget-link" part="link link-${i}"><img width="${this.options["image-width"]}" height="${this.options["image-height"]}" src="${photos[i].display_url}" alt="${this.options["show-title"] === "enabled" ? photos[i].caption.substring(0, 100).replace(/"/g, "") : ""}" loading="lazy" class="instagram-widget-photo" part="photo photo-${i}" /></a></li>`;
 		}
-		this.shadowRoot.querySelector(".instagram-widget-photos").innerHTML = html;
+
+		this.shadowRoot.querySelector(".instagram-widget-content").innerHTML = `<ul class="instagram-widget-photos" part="photos">${html}</ul>`;
+
+		this.shadowRoot.querySelector(".instagram-widget-content-loading").style.display = "none";
+		this.shadowRoot.querySelector(".instagram-widget-content-fetch-error").style.display = "none";
+		this.shadowRoot.querySelector(".instagram-widget-content").style.display = "block";
 
 		switch (this.options["mouse-hover"]) {
 			case "type1":
@@ -174,12 +179,28 @@ class InstagramWidget extends HTMLElement {
 	apiFetch() {
 		let url = `https://www.instagram.com/${this.options["username"].replace("@", "")}/?__a=1`;
 		fetch(url, {"cache": this.options["cache"] === null || this.options["cache"] === "enabled" ? "force-cache" : "default"}).then(function(response) {
-			if (response.status === 200) {
-				return response.json();
-			}
+			return response.json();
 		}).then(function(response) {
 			this.json = response;
+			window.localStorage.setItem("instagram-widget-json", JSON.stringify(this.json));
 			this.buildHTML();
+		}.bind(this)).catch(function() {
+			// console.log(err);
+
+			if (window.localStorage.getItem("instagram-widget-json") != null && window.localStorage.getItem("instagram-widget-json") != "") {
+				try {
+					this.json = JSON.parse(window.localStorage.getItem("instagram-widget-json"));
+					this.buildHTML();
+				} catch {
+					this.shadowRoot.querySelector(".instagram-widget-content").style.display = "none";
+					this.shadowRoot.querySelector(".instagram-widget-content-loading").style.display = "none";
+					this.shadowRoot.querySelector(".instagram-widget-content-fetch-error").style.display = "block";
+				}
+			} else {
+				this.shadowRoot.querySelector(".instagram-widget-content").style.display = "none";
+				this.shadowRoot.querySelector(".instagram-widget-content-loading").style.display = "none";
+				this.shadowRoot.querySelector(".instagram-widget-content-fetch-error").style.display = "block";
+			}
 		}.bind(this));
 	}
 
@@ -197,6 +218,9 @@ class InstagramWidget extends HTMLElement {
 
 			switch (name_attribute) {
 				case "username":
+				  this.shadowRoot.querySelector(".instagram-widget-content").style.display = "none";
+				  this.shadowRoot.querySelector(".instagram-widget-content-loading").style.display = "block";
+				  this.shadowRoot.querySelector(".instagram-widget-content-fetch-error").style.display = "none";
 				  this.apiFetch();
 				  break;
 				default:

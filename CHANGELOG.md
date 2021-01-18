@@ -1,8 +1,13 @@
-# v2.6.1 (May 19, 2020)
-* New: Wordpress Plugin available on [store](https://wordpress.org/plugins/last-9-photos-webcomponent/).
+# v2.7.0 (January 17, 2021)
+* Feature: fetch from backup if get limit api request (from localStorage)
+* Feature: loading spinner
+* Feature: error fetch message
 
 [![](https://img.shields.io/badge/donate-paypal-005EA6.svg?logo=paypal)](https://www.paypal.me/ptkdev) [![](https://img.shields.io/badge/donate-patreon-F87668.svg?logo=patreon)](https://www.patreon.com/ptkdev) [![](https://img.shields.io/badge/donate-sponsors-ea4aaa.svg?logo=github)](https://github.com/sponsors/ptkdev/)  [![](https://img.shields.io/badge/donate-ko--fi-29abe0.svg?logo=ko-fi)](https://ko-fi.com/ptkdev)
 
+
+# v2.6.1 (May 19, 2020)
+* New: Wordpress Plugin available on [store](https://wordpress.org/plugins/last-9-photos-webcomponent/).
 
 # v2.6.0 (May 18, 2020)
 * Feature: Overwrite CSS Style with selector `::part`

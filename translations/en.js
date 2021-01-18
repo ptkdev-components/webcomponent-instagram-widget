@@ -17,5 +17,9 @@
  */
 module.exports = {
 	"title": "Instagram Widget",
-	"title_wordpress": "Last 9 Photos"
+	"title_wordpress": "Last 9 Photos",
+	"loading": "instagram widget loading...",
+	"powered_by": "<a class=\"instagram-widget-href\" target=\"_blank\" href=\"https://github.com/ptkdev-components/webcomponent-instagram-widget\">opensource webcomponent</a> powered by <a class=\"instagram-widget-href\" target=\"_blank\" href=\"https://ptk.dev\">@ptkdev</a>",
+	"error_api": "error while retrieving images...",
+	"support": "check if your instagram profile is public, don't use vpn, update the webcomponent to latest release or open a <a class=\"instagram-widget-href\" target=\"_blank\" href=\"https://github.com/ptkdev-components/webcomponent-instagram-widget/issues\">new bug report</a> on github"
 };
