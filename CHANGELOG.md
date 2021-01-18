@@ -1,4 +1,4 @@
-# v2.7.0 (January 17, 2021)
+# v2.7.1 (January 17, 2021)
 * Feature: fetch from backup if get limit api request (from localStorage)
 * Feature: loading spinner
 * Feature: error fetch message

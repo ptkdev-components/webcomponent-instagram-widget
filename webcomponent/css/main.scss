@@ -39,12 +39,13 @@
 		font-family: monospace, sans-serif;
 		font-weight: 600;
 		padding-top: 20px;
-		height: 20px;
+		height: 100%;
 		background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
 		background-clip: text;
 		text-fill-color: transparent;
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
+		line-height: normal !important;
 	}
 
 	a.instagram-widget-href::before {
