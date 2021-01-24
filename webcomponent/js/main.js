@@ -24,7 +24,7 @@ class InstagramWidget extends HTMLElement {
 			"image-width": "100%",
 			"image-height": "100%",
 			"grid": "responsive",
-			"cache": "enabled",
+			"cache": "disabled",
 			"border-spacing": "2px",
 			"border-corners": "5",
 			"force-square": "yes",
@@ -177,19 +177,23 @@ class InstagramWidget extends HTMLElement {
 	 *
 	 */
 	apiFetch() {
-		let url = `https://www.instagram.com/${this.options["username"].replace("@", "")}/?__a=1`;
+		this.options["username"] = this.options["username"].replace("@", "");
+		let url = `https://www.instagram.com/${this.options["username"]}/?__a=1`;
+
 		fetch(url, {"cache": this.options["cache"] === null || this.options["cache"] === "enabled" ? "force-cache" : "default"}).then(function(response) {
 			return response.json();
 		}).then(function(response) {
 			this.json = response;
-			window.localStorage.setItem("instagram-widget-json", JSON.stringify(this.json));
+			// this.json = JSON.parse(response.match(new RegExp(/<script type="text\/javascript">window\._sharedData = (.*);<\/script>/))[1]).entry_data.ProfilePage[0];
+
+			window.localStorage.setItem(`instagram-widget-json-${this.options["username"]}`, JSON.stringify(this.json));
 			this.buildHTML();
 		}.bind(this)).catch(function() {
 			// console.log(err);
 
-			if (window.localStorage.getItem("instagram-widget-json") != null && window.localStorage.getItem("instagram-widget-json") != "") {
+			if (window.localStorage.getItem(`instagram-widget-json-${this.options["username"]}`) != null && window.localStorage.getItem(`instagram-widget-json-${this.options["username"]}`) != "") {
 				try {
-					this.json = JSON.parse(window.localStorage.getItem("instagram-widget-json"));
+					this.json = JSON.parse(window.localStorage.getItem(`instagram-widget-json-${this.options["username"]}`));
 					this.buildHTML();
 				} catch {
 					this.shadowRoot.querySelector(".instagram-widget-content").style.display = "none";

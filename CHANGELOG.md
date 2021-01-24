@@ -1,10 +1,15 @@
+# v2.8.0-nightly (TBD)
+* Fix: Can't change default username [#6](https://github.com/ptkdev-components/webcomponent-instagram-widget/issues/6)
+* Feature: Fetch with instagram token
+* Rollback: cache disabled as default
+* Refactor: move to typescript
+
+[![](https://img.shields.io/badge/donate-paypal-005EA6.svg?logo=paypal)](https://www.paypal.me/ptkdev) [![](https://img.shields.io/badge/donate-patreon-F87668.svg?logo=patreon)](https://www.patreon.com/ptkdev) [![](https://img.shields.io/badge/donate-sponsors-ea4aaa.svg?logo=github)](https://github.com/sponsors/ptkdev/)  [![](https://img.shields.io/badge/donate-ko--fi-29abe0.svg?logo=ko-fi)](https://ko-fi.com/ptkdev)
+
 # v2.7.1 (January 17, 2021)
 * Feature: fetch from backup if get limit api request (from localStorage)
 * Feature: loading spinner
 * Feature: error fetch message
-
-[![](https://img.shields.io/badge/donate-paypal-005EA6.svg?logo=paypal)](https://www.paypal.me/ptkdev) [![](https://img.shields.io/badge/donate-patreon-F87668.svg?logo=patreon)](https://www.patreon.com/ptkdev) [![](https://img.shields.io/badge/donate-sponsors-ea4aaa.svg?logo=github)](https://github.com/sponsors/ptkdev/)  [![](https://img.shields.io/badge/donate-ko--fi-29abe0.svg?logo=ko-fi)](https://ko-fi.com/ptkdev)
-
 
 # v2.6.1 (May 19, 2020)
 * New: Wordpress Plugin available on [store](https://wordpress.org/plugins/last-9-photos-webcomponent/).
