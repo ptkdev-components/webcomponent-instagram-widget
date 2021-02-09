@@ -3,7 +3,7 @@ Contributors: ptkdev
 Donate link: https://www.patreon.com/ptkdev
 Tags: instagram, widget, last 9 photos, instagram widget, webcomponents
 Requires at least: 5.0
-Tested up to: 5.2
+Tested up to: 5.6
 Requires PHP: 7.2
 Stable tag: {{package.version}}
 License: MIT
