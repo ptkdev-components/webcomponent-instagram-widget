@@ -1,6 +1,6 @@
 # 🌉 WebComponent: Instagram Widget
 
-[![](https://img.shields.io/badge/version-v2.8.0--nightly.20210125-lightgrey.svg)](https://github.com/ptkdev-components/webcomponent-instagram-widget/releases) [![](https://img.shields.io/npm/v/@ptkdev/webcomponent-instagram-widget.svg)](https://www.npmjs.com/package/@ptkdev/webcomponent-instagram-widget) [![](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://github.com/ptkdev-components/webcomponent-instagram-widget/blob/master/LICENSE.md) [![](https://img.shields.io/badge/ES-9-F7DF1E.svg)](https://wikipedia.org/wiki/ECMAScript) [![](https://snyk.io/test/github/ptkdev-components/webcomponent-instagram-widget/badge.svg)](https://snyk.io/test/github/ptkdev-components/webcomponent-instagram-widget) [![](https://discordapp.com/api/guilds/383373985666301975/embed.png)](http://discord.ptkdev.io)
+[![](https://img.shields.io/badge/version-v2.8.0-lightgrey.svg)](https://github.com/ptkdev-components/webcomponent-instagram-widget/releases) [![](https://img.shields.io/npm/v/@ptkdev/webcomponent-instagram-widget.svg)](https://www.npmjs.com/package/@ptkdev/webcomponent-instagram-widget) [![](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://github.com/ptkdev-components/webcomponent-instagram-widget/blob/master/LICENSE.md) [![](https://img.shields.io/badge/ES-9-F7DF1E.svg)](https://wikipedia.org/wiki/ECMAScript) [![](https://snyk.io/test/github/ptkdev-components/webcomponent-instagram-widget/badge.svg)](https://snyk.io/test/github/ptkdev-components/webcomponent-instagram-widget) [![](https://discordapp.com/api/guilds/383373985666301975/embed.png)](http://discord.ptkdev.io)
 
 Last 9 Photos: Instagram Widget of your Instagram Profile for your blog. Show latest 9 pics from your instagram account.
 
@@ -130,7 +130,7 @@ Go to `examples/angular` and run `yarn install` then `yarn start` in folder for 
 | shadows | Show shadows css | `type1`, `type2`, `type3`, `disabled` | `disabled` | v2.6.0 |
 | mouse-hover | Show animation with mouse hover | `type1`, `disabled` | `disabled` | v2.6.0 |
 | show-title | Show alt/title with hover of mouse | `enabled` / `disabled` | `enabled` | v2.6.0 |
-| cache | Enable/disable fetch() cache | `enabled` / `disabled` | `disabled` | v2.1.0 |
+| cache | Enable/disable fetch() cache | `enabled` / `disabled` | `enabled` | v2.1.0 |
 
 #### HTML Code with attributes:
 ```html

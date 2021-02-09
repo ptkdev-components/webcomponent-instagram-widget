@@ -21,5 +21,5 @@ module.exports = {
 	"loading": "caricamento del widget di instagram...",
 	"powered_by": "<a class=\"instagram-widget-href\" target=\"_blank\" href=\"https://github.com/ptkdev-components/webcomponent-instagram-widget\">opensource webcomponent</a> powered by <a class=\"instagram-widget-href\" target=\"_blank\" href=\"https://ptk.dev\">@ptkdev</a>",
 	"error_api": "errore durante il recupero delle immagini...",
-	"support": "controlla se il tuo profilo instagram è pubblico, non usare vpn, aggiorna il componente web all'ultima versione o apri una <a class=\"instagram-widget-href\" target=\"_blank\" href=\"https://github.com/ptkdev-components/webcomponent-instagram-widget/issues\">nuova segnalazione</a> su github"
+	"support": "controlla se il tuo profilo instagram è pubblico, non usare VPN, forse hai raggiunto un limite giornaliero delle API instagram per il tuo ip: riprova fra 48h o apri una <a class=\"instagram-widget-href\" target=\"_blank\" href=\"https://github.com/ptkdev-components/webcomponent-instagram-widget/issues\">nuova segnalazione</a> su github"
 };
