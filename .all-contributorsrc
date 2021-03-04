@@ -39,6 +39,16 @@
       "contributions": [
         "bug"
       ]
+    },
+	{
+      "login": "andrenjdev",
+      "name": "Andre Barbieri",
+	  "profile": "https://github.com/andrenjdev",
+	  "avatar_url": "https://avatars1.githubusercontent.com/u/3781468?v=4",
+      "contributions": [
+        "bug",
+		"code"
+      ]
     }
   ],
   "contributorsPerLine": 6,

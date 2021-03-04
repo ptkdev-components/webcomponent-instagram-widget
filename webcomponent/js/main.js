@@ -191,7 +191,7 @@ class InstagramWidget extends HTMLElement {
 	apiFetch() {
 		this.options["username"] = this.options["username"].replace("@", "");
 		// let url = `https://www.instagram.com/${this.options["username"]}/?__a=1`; // fuck you instagram and CORS
-		let url =  `https://images${~~(Math.random() * 3333)}-focus-opensocial.googleusercontent.com/gadgets/proxy?container=none&url=${encodeURI(`https://www.instagram.com/${this.options["username"]}`)}`;
+		let url =  `https://images${~~(Math.random() * 3333)}-focus-opensocial.googleusercontent.com/gadgets/proxy?container=none&url=${encodeURI(`https://www.instagram.com/${this.options["username"]}`)}`; // google images proxy workaround
 
 		fetch(url, {
 			method: "GET", mode: "cors", redirect: "follow", cache: this.options["cache"] === null || this.options["cache"] === "enabled" ? "force-cache" : "default",
