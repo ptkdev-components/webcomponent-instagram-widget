@@ -32,3 +32,4 @@ gulpfile.js
 .all-contributorsrc
 .eslintcache
 .eslintignore
+.prettierrc
