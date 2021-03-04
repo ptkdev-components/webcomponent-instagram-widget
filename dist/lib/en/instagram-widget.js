@@ -1,4 +1,4 @@
-// WebComponent: InstagramWidget 2.8.0 - Collection of WebComponents by Patryk Rzucidlo [@PTKDev] <support@ptkdev.io>
+// WebComponent: InstagramWidget 2.9.0 - Collection of WebComponents by Patryk Rzucidlo [@PTKDev] <support@ptkdev.io>
 // https://github.com/ptkdev-components/webcomponent-instagram-widget
 (function() { /**
  * InstagramWidget WebComponent
@@ -15,10 +15,10 @@ class InstagramWidget extends HTMLElement {
 		super();
 
 		const template = document.createElement("template");
-		template.innerHTML = `<style id="instagram-widget-style" part="style">#instagram-widget *{margin:0;padding:0;line-height:0}#instagram-widget .instagram-widget-container{text-align:center;justify-content:center;font-weight:500}#instagram-widget .instagram-widget-photos li img{border-radius:5%;background-color:#f8f8ff;object-fit:cover;object-position:50% 50%;max-width:300px;max-height:300px;min-width:80px;min-height:80px;margin:2px}#instagram-widget .instagram-content ul{list-style-type:none;padding-inline-start:0;width:100%}#instagram-widget .instagram-widget-photos li{list-style-type:none;display:inline}#instagram-widget .instagram-widget-error-api,#instagram-widget .instagram-widget-loading,#instagram-widget .instagram-widget-powered,#instagram-widget .instagram-widget-support{font-family:monospace,sans-serif;font-weight:600;padding-top:20px;height:100%;background:linear-gradient(45deg,#f09433 0,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);background-clip:text;text-fill-color:transparent;-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:normal!important}#instagram-widget a.instagram-widget-href::before{content:'';position:absolute;left:50%;bottom:-2px;width:100%;height:1px;background-color:#fc2f70;transform-origin:center;transform:translate(-50%,0) scaleX(1);transition:transform .3s ease-in-out}#instagram-widget a.instagram-widget-href:hover::before{transform:translate(-50%,0) scaleX(0)}#instagram-widget a.instagram-widget-href{position:relative;background:linear-gradient(45deg,#f09433 0,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);background-clip:text;text-fill-color:transparent;-webkit-background-clip:text;-webkit-text-fill-color:transparent;padding-bottom:3px}#instagram-widget .instagram-widget-powered,#instagram-widget .instagram-widget-support{font-size:xx-small}#instagram-widget .instagram-widget-spinner{display:block;transform:translate -50%,-50%;width:50px;height:50px;margin:0 auto}#instagram-widget .instagram-widget-svg{animation:2s linear infinite instagram-widget-svg-animation;max-width:100px}#instagram-widget .instagram-widget-circle{animation:1.4s ease-in-out infinite both instagram-widget-circle-animation;display:block;fill:transparent;stroke:url(#instagram-widget-gradient);stroke-linecap:round;stroke-dasharray:283;stroke-dashoffset:280;stroke-width:8px;-webkit-transform-origin:50% 50%;-ms-transform-origin:50% 50%;transform-origin:50% 50%}@keyframes instagram-widget-svg-animation{0%{transform:rotateZ(0)}100%{transform:rotateZ(360deg)}}@-webkit-keyframes instagram-widget-circle-animation{0%,25%{stroke-dashoffset:280;transform:rotate(0)}50%,75%{stroke-dashoffset:75;transform:rotate(45deg)}100%{stroke-dashoffset:280;transform:rotate(360deg)}}@keyframes instagram-widget-circle-animation{0%,25%{stroke-dashoffset:280;transform:rotate(0)}50%,75%{stroke-dashoffset:75;transform:rotate(45deg)}100%{stroke-dashoffset:280;transform:rotate(360deg)}}</style><div id="instagram-widget" part="main" version="2.8.0">
+		template.innerHTML = `<style id="instagram-widget-style" part="style">#instagram-widget *{margin:0;padding:0;line-height:0}#instagram-widget .instagram-widget-container{text-align:center;justify-content:center;font-weight:500}#instagram-widget .instagram-widget-photos li img{border-radius:5%;background-color:#f8f8ff;object-fit:cover;object-position:50% 50%;max-width:300px;max-height:300px;min-width:80px;min-height:80px;margin:2px}#instagram-widget .instagram-content ul{list-style-type:none;padding-inline-start:0;width:100%}#instagram-widget .instagram-widget-photos li{list-style-type:none;display:inline}#instagram-widget .instagram-widget-error-api,#instagram-widget .instagram-widget-loading,#instagram-widget .instagram-widget-powered,#instagram-widget .instagram-widget-support{font-family:monospace,sans-serif;font-weight:600;padding-top:20px;height:100%;background:linear-gradient(45deg,#f09433 0,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);background-clip:text;text-fill-color:transparent;-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:normal!important}#instagram-widget a.instagram-widget-href::before{content:'';position:absolute;left:50%;bottom:-2px;width:100%;height:1px;background-color:#fc2f70;transform-origin:center;transform:translate(-50%,0) scaleX(1);transition:transform .3s ease-in-out}#instagram-widget a.instagram-widget-href:hover::before{transform:translate(-50%,0) scaleX(0)}#instagram-widget a.instagram-widget-href{position:relative;background:linear-gradient(45deg,#f09433 0,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);background-clip:text;text-fill-color:transparent;-webkit-background-clip:text;-webkit-text-fill-color:transparent;padding-bottom:3px}#instagram-widget .instagram-widget-powered,#instagram-widget .instagram-widget-support{font-size:xx-small}#instagram-widget .instagram-widget-spinner{display:block;transform:translate -50%,-50%;width:50px;height:50px;margin:0 auto}#instagram-widget .instagram-widget-svg{animation:2s linear infinite instagram-widget-svg-animation;max-width:100px}#instagram-widget .instagram-widget-circle{animation:1.4s ease-in-out infinite both instagram-widget-circle-animation;display:block;fill:transparent;stroke:url(#instagram-widget-gradient);stroke-linecap:round;stroke-dasharray:283;stroke-dashoffset:280;stroke-width:8px;-webkit-transform-origin:50% 50%;-ms-transform-origin:50% 50%;transform-origin:50% 50%}@keyframes instagram-widget-svg-animation{0%{transform:rotateZ(0)}100%{transform:rotateZ(360deg)}}@-webkit-keyframes instagram-widget-circle-animation{0%,25%{stroke-dashoffset:280;transform:rotate(0)}50%,75%{stroke-dashoffset:75;transform:rotate(45deg)}100%{stroke-dashoffset:280;transform:rotate(360deg)}}@keyframes instagram-widget-circle-animation{0%,25%{stroke-dashoffset:280;transform:rotate(0)}50%,75%{stroke-dashoffset:75;transform:rotate(45deg)}100%{stroke-dashoffset:280;transform:rotate(360deg)}}</style><div id="instagram-widget" part="main" version="2.9.0">
 	<div class="instagram-widget-container" part="container">
 		<div class="instagram-widget-content" part="content"></div>
-		<div class="instagram-widget-content-loading" part="content-loading" style="display: block;">
+		<div class="instagram-widget-content-loading" part="content-loading" style="display: block">
 			<div class="instagram-widget-spinner">
 				<svg class="instagram-widget-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
 					<defs>
@@ -36,19 +36,19 @@ class InstagramWidget extends HTMLElement {
 			<div class="instagram-widget-loading">instagram widget loading...</div>
 			<div class="instagram-widget-powered"><a class="instagram-widget-href" target="_blank" href="https://github.com/ptkdev-components/webcomponent-instagram-widget">opensource webcomponent</a> powered by <a class="instagram-widget-href" target="_blank" href="https://ptk.dev">@ptkdev</a></div>
 		</div>
-		<div class="instagram-widget-content-fetch-error" part="content-fetch-error" style="display: none;">
+		<div class="instagram-widget-content-fetch-error" part="content-fetch-error" style="display: none">
 			<div class="instagram-widget-spinner">
 				<svg width="100%" height="100%" viewBox="0 0 200 200">
 					<defs>
 						<linearGradient id="instagram-logo-gradient1" x1=".8" y1=".8" x2="0">
-							<stop offset="0" stop-color="#f09433"/>
-							<stop offset="1" stop-color="#bc1888"/>
+							<stop offset="0" stop-color="#f09433" />
+							<stop offset="1" stop-color="#bc1888" />
 						</linearGradient>
 						<radialGradient id="instagram-logo-gradient2" cx=".2" cy="1" r="1.2">
-							<stop offset="0" stop-color="#f09433"/>
-							<stop offset=".1" stop-color="#e6683c"/>
-							<stop offset=".25" stop-color="#dc2743"/>
-							<stop offset=".35" stop-color="#cc2366"/>
+							<stop offset="0" stop-color="#f09433" />
+							<stop offset=".1" stop-color="#e6683c" />
+							<stop offset=".25" stop-color="#dc2743" />
+							<stop offset=".35" stop-color="#cc2366" />
 							<stop offset=".65" stop-color="#bc1888" stop-opacity="0" />
 						</radialGradient>
 						<rect id="instagram-logo-container" x="0" y="0" width="200" height="200" rx="50" ry="50" />
@@ -57,7 +57,7 @@ class InstagramWidget extends HTMLElement {
 					<use xlink:href="#instagram-logo-container" fill="url(#instagram-logo-gradient2)" />
 					<rect x="35" y="35" width="130" height="130" rx="30" ry="30" fill="none" stroke="#fff" stroke-width="13" />
 					<circle cx="100" cy="100" r="32" fill="none" stroke="#fff" stroke-width="13" />
-					<circle cx="140" cy="62" r="9" fill="#fff"/>
+					<circle cx="140" cy="62" r="9" fill="#fff" />
 				</svg>
 			</div>
 			<div class="instagram-widget-error-api">error while retrieving images...</div>
@@ -65,7 +65,8 @@ class InstagramWidget extends HTMLElement {
 			<div class="instagram-widget-powered"><a class="instagram-widget-href" target="_blank" href="https://github.com/ptkdev-components/webcomponent-instagram-widget">opensource webcomponent</a> powered by <a class="instagram-widget-href" target="_blank" href="https://ptk.dev">@ptkdev</a></div>
 		</div>
 	</div>
-</div>`;
+</div>
+`;
 
 		this.attachShadow({mode: "open"});
 		this.shadowRoot.appendChild(template.content.cloneNode(true));
@@ -242,27 +243,25 @@ class InstagramWidget extends HTMLElement {
 	 */
 	apiFetch() {
 		this.options["username"] = this.options["username"].replace("@", "");
-		let url = `https://www.instagram.com/${this.options["username"]}/?__a=1`;
+		// let url = `https://www.instagram.com/${this.options["username"]}/?__a=1`; // fuck you instagram and CORS
+		let url =  `https://images${~~(Math.random() * 3333)}-focus-opensocial.googleusercontent.com/gadgets/proxy?container=none&url=${encodeURI(`https://www.instagram.com/${this.options["username"]}`)}`;
 
 		fetch(url, {
-			cache: this.options["cache"] === null || this.options["cache"] === "enabled" ? "force-cache" : "default",
+			method: "GET", mode: "cors", redirect: "follow", cache: this.options["cache"] === null || this.options["cache"] === "enabled" ? "force-cache" : "default",
 		})
 			.then(function(response) {
-				return response.json();
+				return response.text();
 			})
 			.then(
 				function(response) {
-					this.json = response;
-					// this.json = JSON.parse(response.match(new RegExp(/<script type="text\/javascript">window\._sharedData = (.*);<\/script>/))[1]).entry_data.ProfilePage[0];
-
+					// this.json = response;
+					this.json = JSON.parse(response.match(new RegExp(/<script type="text\/javascript">window\._sharedData = (.*);<\/script>/))[1]).entry_data.ProfilePage[0];
 					window.localStorage.setItem(`instagram-widget-json-${this.options["username"]}`, JSON.stringify(this.json));
 					this.buildHTML();
 				}.bind(this),
 			)
 			.catch(
 				function() {
-					// console.log(err);
-
 					if (
 						window.localStorage.getItem(`instagram-widget-json-${this.options["username"]}`) != null &&
 						window.localStorage.getItem(`instagram-widget-json-${this.options["username"]}`) != ""

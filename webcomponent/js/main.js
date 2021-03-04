@@ -190,27 +190,25 @@ class InstagramWidget extends HTMLElement {
 	 */
 	apiFetch() {
 		this.options["username"] = this.options["username"].replace("@", "");
-		let url = `https://www.instagram.com/${this.options["username"]}/?__a=1`;
+		// let url = `https://www.instagram.com/${this.options["username"]}/?__a=1`; // fuck you instagram and CORS
+		let url =  `https://images${~~(Math.random() * 3333)}-focus-opensocial.googleusercontent.com/gadgets/proxy?container=none&url=${encodeURI(`https://www.instagram.com/${this.options["username"]}`)}`;
 
 		fetch(url, {
-			cache: this.options["cache"] === null || this.options["cache"] === "enabled" ? "force-cache" : "default",
+			method: "GET", mode: "cors", redirect: "follow", cache: this.options["cache"] === null || this.options["cache"] === "enabled" ? "force-cache" : "default",
 		})
 			.then(function(response) {
-				return response.json();
+				return response.text();
 			})
 			.then(
 				function(response) {
-					this.json = response;
-					// this.json = JSON.parse(response.match(new RegExp(/<script type="text\/javascript">window\._sharedData = (.*);<\/script>/))[1]).entry_data.ProfilePage[0];
-
+					// this.json = response;
+					this.json = JSON.parse(response.match(new RegExp(/<script type="text\/javascript">window\._sharedData = (.*);<\/script>/))[1]).entry_data.ProfilePage[0];
 					window.localStorage.setItem(`instagram-widget-json-${this.options["username"]}`, JSON.stringify(this.json));
 					this.buildHTML();
 				}.bind(this),
 			)
 			.catch(
 				function() {
-					// console.log(err);
-
 					if (
 						window.localStorage.getItem(`instagram-widget-json-${this.options["username"]}`) != null &&
 						window.localStorage.getItem(`instagram-widget-json-${this.options["username"]}`) != ""

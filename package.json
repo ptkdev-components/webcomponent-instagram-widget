@@ -1,7 +1,7 @@
 {
 	"name": "@ptkdev/webcomponent-instagram-widget",
 	"description": "Last 9 Photos: Instagram Widget of your Instagram Profile for your blog. Show latest 9 pics from your instagram account. (Unofficial Instagram Widget)",
-	"version": "2.8.0",
+	"version": "2.9.0",
 	"main": "dist/lib/en/instagram-widget.min.js",
 	"author": "Patryk Rzucidło [@ptkdev] <support@ptkdev.io> (https://ptk.dev)",
 	"license": "MIT",
@@ -35,13 +35,9 @@
 		"npm-publish-beta": "git checkout beta && npm publish --tag beta",
 		"npm-publish-nightly": "git checkout nightly && npm publish --tag nightly",
 		"docs": "git submodule update --recursive && markserv ./README.md",
-		"test": "jest",
-		"contributors-generate": "all-contributors generate"
-	},
-	"husky": {
-		"hooks": {
-			"pre-commit": "npm run lint && npm run contributors-generate"
-		}
+		"contributors-generate": "all-contributors generate",
+		"pkg-update": "npm update",
+		"pkg-upgrade": "npx npm-check-updates -u && npm install"
 	},
 	"keywords": [
 		"ptkdev",
@@ -65,34 +61,33 @@
 		"node": ">=12.0.0"
 	},
 	"devDependencies": {
-		"@ptkdev/logger": "latest",
-		"@ptkdev/all-shields-cli": "latest",
-		"express": "latest",
-		"express-session": "latest",
-		"node-fetch": "latest",
-		"browser-sync": "latest",
-		"eslint": "latest",
-		"eslint-plugin-jsdoc": "latest",
-		"eslint-plugin-jest": "latest",
-		"all-contributors-cli": "latest",
-		"gulp": "latest",
-		"gulp-concat": "latest",
-		"gulp-clean-css": "latest",
-		"gulp-terser": "latest",
-		"gulp-rename": "latest",
-		"gulp-nodemon": "latest",
-		"gulp-nunjucks": "latest",
-		"gulp-nunjucks-render": "latest",
-		"gulp-data": "latest",
-		"gulp-run": "latest",
-		"gulp-sass": "latest",
-		"pm2": "latest",
-		"json": "latest",
-		"jest": "latest",
-		"husky": "latest",
-		"yargs": "latest",
-		"serve": "latest",
-		"markserv": "latest"
+		"@ptkdev/all-shields-cli": "^1.2.0",
+		"@ptkdev/logger": "^1.7.2",
+		"all-contributors-cli": "^6.20.0",
+		"browser-sync": "^2.26.14",
+		"eslint": "^7.21.0",
+		"eslint-plugin-jest": "^24.1.5",
+		"eslint-plugin-jsdoc": "^32.2.0",
+		"express": "^4.17.1",
+		"express-session": "^1.17.1",
+		"gulp": "^4.0.2",
+		"gulp-clean-css": "^4.3.0",
+		"gulp-concat": "^2.6.1",
+		"gulp-data": "^1.3.1",
+		"gulp-nodemon": "^2.5.0",
+		"gulp-nunjucks": "^5.1.0",
+		"gulp-nunjucks-render": "^2.2.3",
+		"gulp-rename": "^2.0.0",
+		"gulp-run": "^1.7.1",
+		"gulp-sass": "^4.1.0",
+		"gulp-terser": "^2.0.1",
+		"jest": "^26.6.3",
+		"json": "^10.0.0",
+		"markserv": "^1.17.4",
+		"node-fetch": "^2.6.1",
+		"pm2": "^4.5.5",
+		"serve": "^11.3.2",
+		"yargs": "^16.2.0"
 	},
 	"contributors": [
 		"Emanuele Fricano <emanuelefricano93@gmail.com>"
