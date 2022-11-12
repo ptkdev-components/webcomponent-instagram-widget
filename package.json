@@ -86,7 +86,7 @@
 		"markserv": "^1.17.4",
 		"node-fetch": "^2.6.1",
 		"pm2": "^4.5.5",
-		"serve": "^11.3.2",
+		"serve": "^14.1.1",
 		"yargs": "^16.2.0"
 	},
 	"contributors": [
